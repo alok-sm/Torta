@@ -10,7 +10,7 @@ class ProcessEntity:
 		self.application = " ".join(line[3:]).strip().lower()
 
 	def __str__(self):
-		return "<ProcessEntity   pid={:>5}   application={}/>".format(self.pid, self.application)
+		return "<ProcessEntity   pid={:>5}   application={}>".format(self.pid, self.application)
 
 	def __eq__(self, other):
 		return self.pid == other.pid

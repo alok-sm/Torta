@@ -19,4 +19,4 @@ class FileOpenEntity:
 	def __str__(self):
 		if not self.is_valid:
 			return "<FileOpenEntity Invalid/>"
-		return "<FileOpenEntity   pid={:>5}   path={}/>".format(self.pid, self.path)
+		return "<FileOpenEntity   pid={:>5}   path={}>".format(self.pid, self.path)
