@@ -1,5 +1,8 @@
 import re
 
+#random comment
+#random comment 2
+
 class ProcessEntity:
 	def __init__(self, line):
 		self.line = line
@@ -12,5 +15,5 @@ class ProcessEntity:
 	def __str__(self):
 		return "<ProcessEntity   pid={:>5}   application={}>".format(self.pid, self.application)
 
-	def __eq__(self, other):
+	def __eq__(self, other): 
 		return self.pid == other.pid

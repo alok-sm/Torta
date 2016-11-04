@@ -3,6 +3,8 @@ from get_all_processes import get_all_processes
 import os
 import re
 
+#hello
+
 def filter_app_list(app_list_fd):
 	return [path.split('/')[-1].replace('.app', '').lower() for path in app_list_fd.read().split('\n')[:-1]]
 
