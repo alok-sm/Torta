@@ -1,0 +1,9 @@
+Script started on Wed Nov 16 11:29:25 2016
+[?1034h]0;alok@mbp: ~/dev/HciResearch/KeyStrokes[01;32malok@mbp[00m:[01;34m~/dev/HciResearch/KeyStrokes[00m$ sdsd
+bash: sdsd: command not found
+]0;alok@mbp: ~/dev/HciResearch/KeyStrokes[01;32malok@mbp[00m:[01;34m~/dev/HciResearch/KeyStrokes[00m$ ls
+hello.txt	log.py		typescript
+keylogger	sources
+]0;alok@mbp: ~/dev/HciResearch/KeyStrokes[01;32malok@mbp[00m:[01;34m~/dev/HciResearch/KeyStrokes[00m$ exit
+
+Script done on Wed Nov 16 11:29:31 2016
