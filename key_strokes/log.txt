@@ -1,2 +1,0 @@
-{"ts": "Wed Nov 16 13:42:31 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/key_strokes", "cmd": "ls"}
-{"ts": "Wed Nov 16 13:42:46 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/key_strokes", "cmd": "ls"}
