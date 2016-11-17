@@ -11,7 +11,7 @@ on run argv
 	set filePath to (path to movies folder as string) & filename & ".mov"
 	set fileTarget to "/Users/alokmysore/recorder/stop"
 	
-	do shell script "rm " & fileTarget
+	-- do shell script "rm " & fileTarget
 	
 	tell application "QuickTime Player"
 		activate

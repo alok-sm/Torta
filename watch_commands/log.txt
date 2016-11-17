@@ -1,1 +1,11 @@
-{"ts": "Wed Nov 16 12:52:46 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "cat ~/.bash_profile"}
+
+{"ts": "Wed Nov 16 13:38:57 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "ls"}
+{"ts": "Wed Nov 16 13:39:02 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "ls *"}
+{"ts": "Wed Nov 16 13:39:12 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "cd"}
+{"ts": "Wed Nov 16 13:39:37 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "subl log.txt"}
+{"ts": "Wed Nov 16 13:40:09 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "ls | grep log"}
+{"ts": "Wed Nov 16 13:40:22 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "ls | grep log > xyz.txt"}
+{"ts": "Wed Nov 16 13:40:26 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "subl log.txt"}
+{"ts": "Wed Nov 16 13:40:47 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "echo $PATH"}
+{"ts": "Wed Nov 16 13:40:59 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "env"}
+{"ts": "Wed Nov 16 13:42:18 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/watch_commands", "cmd": "cd .."}

@@ -1,0 +1,1 @@
+{"ts": "Wed Nov 16 13:42:30 PST 2016", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch", "cmd": "cd key_strokes/"}
