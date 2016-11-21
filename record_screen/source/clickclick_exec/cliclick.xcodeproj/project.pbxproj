@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		220F5BDB0C0717C2005EC17E /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220F5BDA0C0717C2005EC17E /* ApplicationServices.framework */; };
+		223F8ECB15BDF8290078A313 /* ActionExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F8ECA15BDF8290078A313 /* ActionExecutor.m */; };
+		2250A92A1966D39000150E07 /* KeycodeInformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2250A9291966D39000150E07 /* KeycodeInformer.m */; };
+		226347791B998B80003C5D71 /* ColorPickerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 226347781B998B80003C5D71 /* ColorPickerAction.m */; };
+		226A924F16AC9D7B0079165A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226A924E16AC9D7B0079165A /* Cocoa.framework */; };
+		228B7AA81B54179A003D6960 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228B7AA71B54179A003D6960 /* IOKit.framework */; };
+		22998C7D197A85A300A4C691 /* TypeAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22998C7C197A85A300A4C691 /* TypeAction.m */; };
+		22B4D99C15D6CB0A002C8478 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4D99B15D6CB0A002C8478 /* Carbon.framework */; };
+		22C0ECEE16BAFD9800E3A46C /* KeyBaseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C0ECED16BAFD9800E3A46C /* KeyBaseAction.m */; };
+		22C68A501825A8960083A722 /* KeyDownUpBaseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C68A4F1825A8960083A722 /* KeyDownUpBaseAction.m */; };
+		22E5626B16BA589200CD5D86 /* ClickAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5625716BA589200CD5D86 /* ClickAction.m */; };
+		22E5626C16BA589200CD5D86 /* DoubleclickAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5625916BA589200CD5D86 /* DoubleclickAction.m */; };
+		22E5626D16BA589200CD5D86 /* KeyDownAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5625B16BA589200CD5D86 /* KeyDownAction.m */; };
+		22E5626E16BA589200CD5D86 /* KeyPressAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5625D16BA589200CD5D86 /* KeyPressAction.m */; };
+		22E5626F16BA589200CD5D86 /* KeyUpAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5625F16BA589200CD5D86 /* KeyUpAction.m */; };
+		22E5627016BA589200CD5D86 /* MouseBaseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5626216BA589200CD5D86 /* MouseBaseAction.m */; };
+		22E5627116BA589200CD5D86 /* MoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5626416BA589200CD5D86 /* MoveAction.m */; };
+		22E5627216BA589200CD5D86 /* PrintAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5626616BA589200CD5D86 /* PrintAction.m */; };
+		22E5627316BA589200CD5D86 /* TripleclickAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5626816BA589200CD5D86 /* TripleclickAction.m */; };
+		22E5627416BA589200CD5D86 /* WaitAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E5626A16BA589200CD5D86 /* WaitAction.m */; };
+		8DD76F9A0486AA7600D96B5E /* cliclick.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* cliclick.m */; settings = {ATTRIBUTES = (); }; };
+		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		F0A674F818EE2D0C0062FD29 /* DragDownAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A674F718EE2D0C0062FD29 /* DragDownAction.m */; };
+		F0A674FB18EE3F220062FD29 /* DragUpAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A674FA18EE3F220062FD29 /* DragUpAction.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* cliclick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cliclick.m; sourceTree = "<group>"; };
+		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		220F5BDA0C0717C2005EC17E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		223F8EC915BDF8290078A313 /* ActionExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionExecutor.h; sourceTree = "<group>"; };
+		223F8ECA15BDF8290078A313 /* ActionExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionExecutor.m; sourceTree = "<group>"; };
+		2250A9281966D39000150E07 /* KeycodeInformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeycodeInformer.h; sourceTree = "<group>"; };
+		2250A9291966D39000150E07 /* KeycodeInformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeycodeInformer.m; sourceTree = "<group>"; };
+		226347771B998B80003C5D71 /* ColorPickerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorPickerAction.h; path = Actions/ColorPickerAction.h; sourceTree = "<group>"; };
+		226347781B998B80003C5D71 /* ColorPickerAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorPickerAction.m; path = Actions/ColorPickerAction.m; sourceTree = "<group>"; };
+		226A924E16AC9D7B0079165A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		228B7AA71B54179A003D6960 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
+		22998C7B197A85A300A4C691 /* TypeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeAction.h; path = Actions/TypeAction.h; sourceTree = "<group>"; };
+		22998C7C197A85A300A4C691 /* TypeAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeAction.m; path = Actions/TypeAction.m; sourceTree = "<group>"; };
+		22B4D99B15D6CB0A002C8478 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		22C0ECEC16BAFD9800E3A46C /* KeyBaseAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyBaseAction.h; path = Actions/KeyBaseAction.h; sourceTree = "<group>"; };
+		22C0ECED16BAFD9800E3A46C /* KeyBaseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyBaseAction.m; path = Actions/KeyBaseAction.m; sourceTree = "<group>"; };
+		22C68A4E1825A8960083A722 /* KeyDownUpBaseAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyDownUpBaseAction.h; path = Actions/KeyDownUpBaseAction.h; sourceTree = "<group>"; };
+		22C68A4F1825A8960083A722 /* KeyDownUpBaseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyDownUpBaseAction.m; path = Actions/KeyDownUpBaseAction.m; sourceTree = "<group>"; };
+		22D9A7AF19A469B6004F4CEE /* ActionClassesMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionClassesMacro.h; sourceTree = "<group>"; };
+		22E5625516BA589200CD5D86 /* ActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionProtocol.h; path = Actions/ActionProtocol.h; sourceTree = "<group>"; };
+		22E5625616BA589200CD5D86 /* ClickAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClickAction.h; path = Actions/ClickAction.h; sourceTree = "<group>"; };
+		22E5625716BA589200CD5D86 /* ClickAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClickAction.m; path = Actions/ClickAction.m; sourceTree = "<group>"; };
+		22E5625816BA589200CD5D86 /* DoubleclickAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoubleclickAction.h; path = Actions/DoubleclickAction.h; sourceTree = "<group>"; };
+		22E5625916BA589200CD5D86 /* DoubleclickAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoubleclickAction.m; path = Actions/DoubleclickAction.m; sourceTree = "<group>"; };
+		22E5625A16BA589200CD5D86 /* KeyDownAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyDownAction.h; path = Actions/KeyDownAction.h; sourceTree = "<group>"; };
+		22E5625B16BA589200CD5D86 /* KeyDownAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyDownAction.m; path = Actions/KeyDownAction.m; sourceTree = "<group>"; };
+		22E5625C16BA589200CD5D86 /* KeyPressAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyPressAction.h; path = Actions/KeyPressAction.h; sourceTree = "<group>"; };
+		22E5625D16BA589200CD5D86 /* KeyPressAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyPressAction.m; path = Actions/KeyPressAction.m; sourceTree = "<group>"; };
+		22E5625E16BA589200CD5D86 /* KeyUpAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyUpAction.h; path = Actions/KeyUpAction.h; sourceTree = "<group>"; };
+		22E5625F16BA589200CD5D86 /* KeyUpAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyUpAction.m; path = Actions/KeyUpAction.m; sourceTree = "<group>"; };
+		22E5626116BA589200CD5D86 /* MouseBaseAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MouseBaseAction.h; path = Actions/MouseBaseAction.h; sourceTree = "<group>"; };
+		22E5626216BA589200CD5D86 /* MouseBaseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MouseBaseAction.m; path = Actions/MouseBaseAction.m; sourceTree = "<group>"; };
+		22E5626316BA589200CD5D86 /* MoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoveAction.h; path = Actions/MoveAction.h; sourceTree = "<group>"; };
+		22E5626416BA589200CD5D86 /* MoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoveAction.m; path = Actions/MoveAction.m; sourceTree = "<group>"; };
+		22E5626516BA589200CD5D86 /* PrintAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrintAction.h; path = Actions/PrintAction.h; sourceTree = "<group>"; };
+		22E5626616BA589200CD5D86 /* PrintAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrintAction.m; path = Actions/PrintAction.m; sourceTree = "<group>"; };
+		22E5626716BA589200CD5D86 /* TripleclickAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TripleclickAction.h; path = Actions/TripleclickAction.h; sourceTree = "<group>"; };
+		22E5626816BA589200CD5D86 /* TripleclickAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TripleclickAction.m; path = Actions/TripleclickAction.m; sourceTree = "<group>"; };
+		22E5626916BA589200CD5D86 /* WaitAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitAction.h; path = Actions/WaitAction.h; sourceTree = "<group>"; };
+		22E5626A16BA589200CD5D86 /* WaitAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaitAction.m; path = Actions/WaitAction.m; sourceTree = "<group>"; };
+		32A70AAB03705E1F00C91783 /* cliclick_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cliclick_Prefix.pch; sourceTree = "<group>"; };
+		8DD76FA10486AA7600D96B5E /* cliclick */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cliclick; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0A674F618EE2D0C0062FD29 /* DragDownAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragDownAction.h; path = Actions/DragDownAction.h; sourceTree = "<group>"; };
+		F0A674F718EE2D0C0062FD29 /* DragDownAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragDownAction.m; path = Actions/DragDownAction.m; sourceTree = "<group>"; };
+		F0A674F918EE3F220062FD29 /* DragUpAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DragUpAction.h; path = Actions/DragUpAction.h; sourceTree = "<group>"; };
+		F0A674FA18EE3F220062FD29 /* DragUpAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DragUpAction.m; path = Actions/DragUpAction.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				220F5BDB0C0717C2005EC17E /* ApplicationServices.framework in Frameworks */,
+				22B4D99C15D6CB0A002C8478 /* Carbon.framework in Frameworks */,
+				228B7AA81B54179A003D6960 /* IOKit.framework in Frameworks */,
+				226A924F16AC9D7B0079165A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* cliclick */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6859EA2029092E104C91782 /* Documentation */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = cliclick;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				223F8ECC15BDF9280078A313 /* Actions */,
+				22D9A7AF19A469B6004F4CEE /* ActionClassesMacro.h */,
+				223F8EC915BDF8290078A313 /* ActionExecutor.h */,
+				223F8ECA15BDF8290078A313 /* ActionExecutor.m */,
+				32A70AAB03705E1F00C91783 /* cliclick_Prefix.pch */,
+				08FB7796FE84155DC02AAC07 /* cliclick.m */,
+				2250A9281966D39000150E07 /* KeycodeInformer.h */,
+				2250A9291966D39000150E07 /* KeycodeInformer.m */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				228B7AA71B54179A003D6960 /* IOKit.framework */,
+				220F5BDA0C0717C2005EC17E /* ApplicationServices.framework */,
+				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				22B4D99B15D6CB0A002C8478 /* Carbon.framework */,
+				226A924E16AC9D7B0079165A /* Cocoa.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FA10486AA7600D96B5E /* cliclick */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		223F8ECC15BDF9280078A313 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				22E5625516BA589200CD5D86 /* ActionProtocol.h */,
+				22704CCC19816C62000270EE /* KeyboardActions */,
+				22704CCB19816C4C000270EE /* MouseActions */,
+				22704CCD19816C74000270EE /* OtherActions */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		22704CCB19816C4C000270EE /* MouseActions */ = {
+			isa = PBXGroup;
+			children = (
+				22E5626116BA589200CD5D86 /* MouseBaseAction.h */,
+				22E5626216BA589200CD5D86 /* MouseBaseAction.m */,
+				22E5625616BA589200CD5D86 /* ClickAction.h */,
+				22E5625716BA589200CD5D86 /* ClickAction.m */,
+				F0A674F618EE2D0C0062FD29 /* DragDownAction.h */,
+				F0A674F718EE2D0C0062FD29 /* DragDownAction.m */,
+				F0A674F918EE3F220062FD29 /* DragUpAction.h */,
+				F0A674FA18EE3F220062FD29 /* DragUpAction.m */,
+				22E5625816BA589200CD5D86 /* DoubleclickAction.h */,
+				22E5625916BA589200CD5D86 /* DoubleclickAction.m */,
+				22E5626316BA589200CD5D86 /* MoveAction.h */,
+				22E5626416BA589200CD5D86 /* MoveAction.m */,
+				22E5626716BA589200CD5D86 /* TripleclickAction.h */,
+				22E5626816BA589200CD5D86 /* TripleclickAction.m */,
+			);
+			name = MouseActions;
+			sourceTree = "<group>";
+		};
+		22704CCC19816C62000270EE /* KeyboardActions */ = {
+			isa = PBXGroup;
+			children = (
+				22C0ECEC16BAFD9800E3A46C /* KeyBaseAction.h */,
+				22C0ECED16BAFD9800E3A46C /* KeyBaseAction.m */,
+				22C68A4E1825A8960083A722 /* KeyDownUpBaseAction.h */,
+				22C68A4F1825A8960083A722 /* KeyDownUpBaseAction.m */,
+				22E5625A16BA589200CD5D86 /* KeyDownAction.h */,
+				22E5625B16BA589200CD5D86 /* KeyDownAction.m */,
+				22E5625C16BA589200CD5D86 /* KeyPressAction.h */,
+				22E5625D16BA589200CD5D86 /* KeyPressAction.m */,
+				22E5625E16BA589200CD5D86 /* KeyUpAction.h */,
+				22E5625F16BA589200CD5D86 /* KeyUpAction.m */,
+				22998C7B197A85A300A4C691 /* TypeAction.h */,
+				22998C7C197A85A300A4C691 /* TypeAction.m */,
+			);
+			name = KeyboardActions;
+			sourceTree = "<group>";
+		};
+		22704CCD19816C74000270EE /* OtherActions */ = {
+			isa = PBXGroup;
+			children = (
+				226347771B998B80003C5D71 /* ColorPickerAction.h */,
+				226347781B998B80003C5D71 /* ColorPickerAction.m */,
+				22E5626516BA589200CD5D86 /* PrintAction.h */,
+				22E5626616BA589200CD5D86 /* PrintAction.m */,
+				22E5626916BA589200CD5D86 /* WaitAction.h */,
+				22E5626A16BA589200CD5D86 /* WaitAction.m */,
+			);
+			name = OtherActions;
+			sourceTree = "<group>";
+		};
+		C6859EA2029092E104C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F960486AA7600D96B5E /* cliclick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "cliclick" */;
+			buildPhases = (
+				223CF13319ABCD6800689351 /* ShellScript */,
+				22D9A7B019A46A00004F4CEE /* ShellScript */,
+				8DD76F990486AA7600D96B5E /* Sources */,
+				8DD76F9B0486AA7600D96B5E /* Frameworks */,
+				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
+				22240FB419C5F44D00C2AF24 /* ShellScript */,
+				22F0E20215D9AAC600158334 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cliclick;
+			productInstallPath = "$(HOME)/bin";
+			productName = cliclick;
+			productReference = 8DD76FA10486AA7600D96B5E /* cliclick */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "cliclick" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* cliclick */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F960486AA7600D96B5E /* cliclick */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22240FB419C5F44D00C2AF24 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"$PROJECT_DIR/generate-characterinfo.php\" ]\nthen\n    # Make the script executable. It may not be, if it was just freshly checked out from VCS\n    chmod +x \"$PROJECT_DIR/generate-characterinfo.php\"\n    \"$PROJECT_DIR/generate-characterinfo.php\" > \"$PROJECT_DIR/README-Characters.md\"\nfi";
+		};
+		223CF13319ABCD6800689351 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | \\\n     xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\n     perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+		22D9A7B019A46A00004F4CEE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "cd \"$PROJECT_DIR/Actions\"\necho -e \"// DO NOT EDIT THIS FILE.\\n// This file is written automatically by a “Run Script” build phase\" > \"../ActionClassesMacro.h\"\necho \"#define ACTION_CLASSES \\\\\" >> \"../ActionClassesMacro.h\"\nfind . -name '*Action.m' ! -name '*BaseAction.m' | perl -p -e 's=^\\./(.*)\\.m$=        @\"$1\", \\\\=;' >> \"../ActionClassesMacro.h\"\necho \"        nil\" >> \"../ActionClassesMacro.h\"";
+		};
+		22F0E20215D9AAC600158334 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Note: This references a script used for packaging releases.\n# If you have checked out the project from GitHub, it is correct that this file does not exist.\nif [ -e \"$PROJECT_DIR/../bin/finalize.sh\" ]\nthen\n    # Make the script executable. It may not be, if it was just freshly checked out from VCS\n    chmod +x \"$PROJECT_DIR/../bin/finalize.sh\"\n\n    \"$PROJECT_DIR/../bin/finalize.sh\" \"$PROJECT_DIR\" \"$TARGETNAME\" \"$BUILT_PRODUCTS_DIR\" \"$CONFIGURATION\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F990486AA7600D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76F9A0486AA7600D96B5E /* cliclick.m in Sources */,
+				223F8ECB15BDF8290078A313 /* ActionExecutor.m in Sources */,
+				22E5626B16BA589200CD5D86 /* ClickAction.m in Sources */,
+				22E5626C16BA589200CD5D86 /* DoubleclickAction.m in Sources */,
+				22E5626D16BA589200CD5D86 /* KeyDownAction.m in Sources */,
+				22E5626E16BA589200CD5D86 /* KeyPressAction.m in Sources */,
+				22E5626F16BA589200CD5D86 /* KeyUpAction.m in Sources */,
+				22C68A501825A8960083A722 /* KeyDownUpBaseAction.m in Sources */,
+				22E5627016BA589200CD5D86 /* MouseBaseAction.m in Sources */,
+				2250A92A1966D39000150E07 /* KeycodeInformer.m in Sources */,
+				22E5627116BA589200CD5D86 /* MoveAction.m in Sources */,
+				22E5627216BA589200CD5D86 /* PrintAction.m in Sources */,
+				22E5627316BA589200CD5D86 /* TripleclickAction.m in Sources */,
+				22998C7D197A85A300A4C691 /* TypeAction.m in Sources */,
+				22E5627416BA589200CD5D86 /* WaitAction.m in Sources */,
+				226347791B998B80003C5D71 /* ColorPickerAction.m in Sources */,
+				22C0ECEE16BAFD9800E3A46C /* KeyBaseAction.m in Sources */,
+				F0A674F818EE2D0C0062FD29 /* DragDownAction.m in Sources */,
+				F0A674FB18EE3F220062FD29 /* DragUpAction.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB927508733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = cliclick_Prefix.pch;
+				INSTALL_PATH = "$(HOME)/bin";
+				PRODUCT_NAME = cliclick;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB927608733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = cliclick_Prefix.pch;
+				INSTALL_PATH = "$(HOME)/bin";
+				PRODUCT_NAME = cliclick;
+			};
+			name = Release;
+		};
+		1DEB927908733DD40010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DDEBUG=1";
+				PREBINDING = NO;
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		1DEB927A08733DD40010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = "";
+				PREBINDING = NO;
+				SDKROOT = macosx10.7;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "cliclick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927508733DD40010E9CD /* Debug */,
+				1DEB927608733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "cliclick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB927908733DD40010E9CD /* Debug */,
+				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
