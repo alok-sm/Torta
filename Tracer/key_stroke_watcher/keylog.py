@@ -23,8 +23,10 @@ os.system("sudo sh -c 'echo > {}'".format(log_file_path))
 # start the keylogger exec
 subprocess.Popen(["sudo", "./keylogger"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 
-# wait for [return]
-raw_input("hit enter to stop\n")
+while True:
+	time.sleep(1)
+	if os.path.isfile("stop"):
+		break
 
 # kill keylogger
 subprocess.Popen(["sudo", "killall", "keylogger"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -72,4 +74,4 @@ for keystroke in keystrokes:
 		print " ".join(sorted(sticky_keys)),
 
 	# print the non sticky key
-	print keystroke
+	print "({}) {}".format(str(int(time.time())), keystroke)
