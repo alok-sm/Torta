@@ -4,10 +4,10 @@ from ProcessEntity import ProcessEntity
 from FileWriters import SyncFileWriters
 import sys
 
-# vim comment
+# new subl comment
 
 
-def main():
+def run_file_watcher():
 	process_gen = get_user_process_gen()
 	prev_processes = []
 	file_watchers = []
@@ -19,11 +19,10 @@ def main():
 		new_processes = [process for process in all_processes if process not in prev_processes]
 
 		for process in new_processes:
-			# file_watchers[process.pid] = get_file_watch_threads(process.pid)
 			print >> sys.stderr, "[new]", process
-			file_watchers += get_file_watch_threads(pid, file_writers)
+			file_watchers += get_file_watch_threads(process.pid, file_writers)
 
 		prev_processes = all_processes
 
 if __name__ == '__main__':
-	main()
+	run_file_watcher()

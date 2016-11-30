@@ -10,8 +10,6 @@ O_RDONLY = 0
 O_WRONLY = 1
 O_RDWR   = 2 
 
-#comment2
-
 pattern = r"(open_nocancel|open)\(\"(.+?)\", 0x([0-9abcdefABCDEF]+), 0x([0-9abcdefABCDEF]+)\)"
 
 def is_file(path):
@@ -39,7 +37,6 @@ def get_abs_path(path, pid):
 	return os.path.join(cwd, path)
 
 def watch_file_opens(pid, syscall, file_writers):
-	# print "starting thread for", syscall
 	basepath = "/Users/alokmysore/watcher/{}/".format(pid)
 
 	read_log_path = "{}meta/readlog.txt".format(basepath)
