@@ -11,7 +11,7 @@ mkdir results/$(cat session.txt)
 # sudo python file_watcher/file_watcher.py $(cat session.txt)
 
 # start screen recorder
-su - $(cat user.txt) -c -m "cd $(pwd); osascript screen_recorder/record.applescript" &
+su - $(cat user.txt) -c -m "cd $(pwd); osascript screen_recorder/record.applescript $(cat session.txt)" &
 
 # start key logger
 cd key_stroke_watcher
