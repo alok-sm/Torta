@@ -36,8 +36,8 @@ def get_abs_path(path, pid):
 
 	return os.path.join(cwd, path)
 
-def watch_file_opens(pid, syscall, file_writers):
-	basepath = "/Users/alokmysore/watcher/{}/".format(pid)
+def watch_file_opens(sessionid, pid, syscall, file_writers):
+	basepath = "/Users/alokmysore/watcher/{}/{}/".format(sessionid, pid)
 
 	read_log_path = "{}meta/readlog.txt".format(basepath)
 	write_log_path = "{}meta/writelog.txt".format(basepath)
@@ -72,9 +72,9 @@ def watch_file_opens(pid, syscall, file_writers):
 			os.system("cp {} {}read/".format(path_encode(filepath), path_encode(basepath)))
 			file_writers.write(read_log_path, filepath + "\n")
 
-def get_file_watch_threads(pid, file_writers):
-	thread_open = Thread(target=watch_file_opens, args=(str(pid), "open", file_writers))
-	thread_open_nocancel = Thread(target=watch_file_opens, args=(str(pid), "open_nocancel", file_writers))
+def get_file_watch_threads(sessionid, pid, file_writers):
+	thread_open = Thread(target=watch_file_opens, args=(sessionid, str(pid), "open", file_writers))
+	thread_open_nocancel = Thread(target=watch_file_opens, args=(sessionid, str(pid), "open_nocancel", file_writers))
 
 	thread_open.start()
 	thread_open_nocancel.start()

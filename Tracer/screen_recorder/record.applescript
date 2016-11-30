@@ -9,7 +9,7 @@ on run argv
 	end if
 	
 	set filePath to (path to movies folder as string) & filename & ".mov"
-	set fileTarget to "stop"
+	set fileTarget to "stop_screen_recorder"
 	
 	-- do shell script "rm " & fileTarget
 	

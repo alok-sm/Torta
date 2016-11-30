@@ -12,7 +12,8 @@ def run_file_watcher():
 	prev_processes = []
 	file_watchers = []
 	file_writers = SyncFileWriters()
-
+	sessionid = sys.argv[1]
+	
 	while True:
 		all_processes = next(process_gen)
 
@@ -20,7 +21,7 @@ def run_file_watcher():
 
 		for process in new_processes:
 			print >> sys.stderr, "[new]", process
-			file_watchers += get_file_watch_threads(process.pid, file_writers)
+			file_watchers += get_file_watch_threads(sessionid, process.pid, file_writers)
 
 		prev_processes = all_processes
 

