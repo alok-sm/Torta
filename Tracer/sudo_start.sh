@@ -4,16 +4,16 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
-# create results folder
-mkdir results/$(cat session.txt)
-
 # start file watcher
 # sudo python file_watcher/file_watcher.py $(cat session.txt)
 
 # start screen recorder
-su - $(cat user.txt) -c -m "cd $(pwd); osascript screen_recorder/record.applescript $(cat session.txt)" &
+su - $(cat user.txt) -c -m "cd $(pwd); osascript screen_recorder/screen_record.applescript $(cat session.txt)" &
+
+# start the window recorder
+su - $(cat user.txt) -c -m "cd $(pwd); osascript window_recorder/window_record.applescript 2> results/$(cat session.txt)/window_positions.txt" &
 
 # start key logger
 cd key_stroke_watcher
-sudo python keylog.py > ../results/$(cat ../session.txt)/keylog.txt &
+sudo python keylog.py > ../results/$(cat ../session.txt)/keylog.json &
 

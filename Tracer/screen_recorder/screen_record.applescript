@@ -9,9 +9,7 @@ on run argv
 	end if
 	
 	set filePath to (path to movies folder as string) & filename & ".mov"
-	set fileTarget to "stop_screen_recorder"
-	
-	-- do shell script "rm " & fileTarget
+	set fileTarget to (do shell script "pwd") & "/stop_screen_recorder"
 	
 	tell application "QuickTime Player"
 		activate
@@ -27,19 +25,18 @@ on run argv
 		
 		tell newScreenRecording
 			start
-			set break to 0
-			repeat until break = 1
+			repeat
 				delay 1
 				try
 					POSIX file fileTarget as alias
 					do shell script "rm " & fileTarget
-					set break to 1
+					exit repeat
 				end try
 			end repeat
 			stop
 		end tell
 		
-		export document 1 in (file filePath) using settings preset "720p"
+		export document 1 in (file filePath) using settings preset "1080p"
 		close document 1 saving no
 		
 		tell application "QuickTime Player"
