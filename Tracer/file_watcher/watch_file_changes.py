@@ -46,7 +46,7 @@ def watch_file_opens(sessionid, pid, syscall, file_writers):
 	mkdirs("{}write".format(basepath))
 	mkdirs("{}meta".format(basepath))
 
-	cmd = ["sudo", "dtruss", "-t", syscall, "-p"] + [pid] 
+	cmd = ["sudo", "dtruss", "-f","-t", syscall, "-p"] + [pid] 
 
 	dtruss = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -84,6 +84,6 @@ def get_file_watch_threads(sessionid, pid, file_writers):
 
 if __name__ == '__main__':
 	file_writers = SyncFileWriters()
-	thread_open, thread_open_nocancel = get_file_watch_threads(sys.argv[1], file_writers)
+	thread_open, thread_open_nocancel = get_file_watch_threads(sys.argv[1], sys.argv[2],file_writers)
 	thread_open.join()
 	thread_open_nocancel.join()

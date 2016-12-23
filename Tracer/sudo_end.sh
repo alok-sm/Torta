@@ -10,11 +10,8 @@ touch stop_screen_recorder
 # stop key stroke monitor
 touch key_stroke_watcher/stop_key_stroke_watcher
 
-# stop window watcher
-touch stop_window_recorder
-
 sleep 10
 
-mv ~/Movies/$(cat session.txt).mov output/$(cat session.txt)
+mv ~/Movies/$(cat session.txt).mov output/$(cat session.txt)/screen_recording.mov
 
 sudo chown -R $(cat user.txt) results/*

@@ -7,11 +7,8 @@ fi
 # start file watcher
 # sudo python file_watcher/file_watcher.py $(cat session.txt)
 
-# start screen recorder
-su - $(cat user.txt) -c -m "cd $(pwd); osascript screen_recorder/screen_record.applescript $(cat session.txt)" &
-
-# start the window recorder
-su - $(cat user.txt) -c -m "cd $(pwd); osascript window_recorder/window_record.applescript 2> results/$(cat session.txt)/window_positions.txt" &
+# start screen and window recorder
+su - $(cat user.txt) -c -m "cd $(pwd); osascript screen_recorder/screen_record.applescript $(cat session.txt) 2> results/$(cat session.txt)/window_positions.txt" &
 
 # start key logger
 cd key_stroke_watcher

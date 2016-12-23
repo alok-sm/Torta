@@ -1,8 +1,23 @@
 #!/usr/bin/osascript
 on run argv
-	
-	
 	set filename to "default"
+
+
+	-- get window position to run click click on
+
+	repeat
+		tell application "System Events"
+			set activeApp to name of first application process whose frontmost is true
+		end tell
+
+		tell application "System Events" to tell application process activeApp
+			try
+				set appPosition to position of first window
+				exit repeat
+			end try
+		end tell
+	end repeat
+
 	
 	if (count of argv) > 0 then
 		set filename to item 1 of argv
@@ -25,14 +40,49 @@ on run argv
 		
 		tell newScreenRecording
 			start
+			-- repeat
+			-- 	delay 1
+			-- 	try
+			-- 		POSIX file fileTarget as alias
+			-- 		do shell script "rm " & fileTarget
+			-- 		exit repeat
+			-- 	end try
+			-- end repeat
+
+			do shell script "/usr/local/bin/cliclick c:" & item 1 of appPosition & "," & item 2 of appPosition
+
 			repeat
-				delay 1
+				tell application "System Events"
+					set activeApp to name of first application process whose frontmost is true
+				end tell
+
+				tell application "System Events" to tell application process activeApp
+					try
+						set appSize to size of first window
+						set appPosition to position of first window
+
+						set output to 			"{ \"x\": " 		& (item 1 of appPosition)
+						set output to output & 	", \"y\": " 		& (item 2 of appPosition)
+						set output to output & 	", \"width\": " 	& (item 1 of appSize)
+						set output to output & 	", \"height\": " 	& (item 2 of appSize)
+						set output to output & 	", \"app\": \"" 	& activeApp & "\""
+						set output to output & 	", \"timestamp\": " & (do shell script "date +%s") & " }"
+
+						log output
+					end try
+				end tell
+
+
+				delay 0.2
 				try
 					POSIX file fileTarget as alias
 					do shell script "rm " & fileTarget
 					exit repeat
 				end try
 			end repeat
+
+
+
 			stop
 		end tell
 		

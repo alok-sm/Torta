@@ -9,19 +9,19 @@ repeat
 			set appSize to size of first window
 			set appPosition to position of first window
 
-			set output to "{\"x1\": " & (item 1 of appPosition)
-			set output to output & ", \"y1\": " & (item 2 of appPosition)
-			set output to output & ", \"x2\": " & (item 1 of appPosition + item 1 of appSize)
-			set output to output & ", \"y2\": " & (item 1 of appPosition + item 1 of appSize)
-			set output to output & ", \"app\": \"" & activeApp & "\""
-			set output to output & ", \"timestamp\": " & (do shell script "date +%s") & "}"
+			set output to 			"{ \"x\": " 		& (item 1 of appPosition)
+			set output to output & 	", \"y\": " 		& (item 2 of appPosition)
+			set output to output & 	", \"width\": " 	& (item 1 of appSize)
+			set output to output & 	", \"height\": " 	& (item 2 of appSize)
+			set output to output & 	", \"app\": \"" 	& activeApp & "\""
+			set output to output & 	", \"timestamp\": " & (do shell script "date +%s") & " }"
 
 			log output
 		end try
 	end tell
 
 
-	delay 0.5
+	delay 0.2
 	try
 		POSIX file fileTarget as alias
 		do shell script "rm " & fileTarget
