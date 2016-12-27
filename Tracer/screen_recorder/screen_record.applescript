@@ -40,7 +40,7 @@ on run argv
 		
 		tell newScreenRecording to start
 
-		do shell script "date +%s > results/$(cat session.txt)/start_time.txt"
+		do shell script "date +%s > raw_data/$(cat meta/session.txt)/start_time.txt"
 
 		repeat
 			tell application "System Events"
@@ -72,7 +72,7 @@ on run argv
 			end try
 		end repeat
 
-		do shell script "date +%s > results/$(cat session.txt)/end_time.txt"
+		do shell script "date +%s > raw_data/$(cat meta/session.txt)/end_time.txt"
 
 		tell newScreenRecording to stop
 		

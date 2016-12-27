@@ -4,11 +4,11 @@ import os
 
 session_id = sys.argv[1]
 
-keylog = json.load(open('results/{}/keylog.json'.format(session_id)))
+keylog = json.load(open('raw_data/{}/keylog.json'.format(session_id)))
 
-window_positions = [json.loads(line) for line in open('results/{}/window_positions.txt'.format(session_id))]
+window_positions = [json.loads(line) for line in open('raw_data/{}/window_positions.txt'.format(session_id))]
 
-commands = [json.loads(line) for line in open('results/{}/command_log.txt'.format(session_id))]
+commands = [json.loads(line) for line in open('raw_data/{}/command_log.txt'.format(session_id))]
 
 grouped_positions = []
 

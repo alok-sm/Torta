@@ -10,12 +10,12 @@ touch stop_screen_recorder
 # stop key stroke monitor
 touch key_stroke_watcher/stop_key_stroke_watcher
 
-while [ ! -f ~/Movies/$(cat session.txt).mov ]
+while [ ! -f ~/Movies/$(cat meta/session.txt).mov ]
 do
   sleep 2
 done
 
 
-mv ~/Movies/$(cat session.txt).mov output/$(cat session.txt)/screen_recording.mov
+mv ~/Movies/$(cat meta/session.txt).mov output/$(cat meta/session.txt)/screen_recording.mov
 
-sudo chown -R $(cat user.txt) results/*
+sudo chown -R $(cat meta/user.txt) raw_data/*

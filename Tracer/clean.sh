@@ -1,2 +1,3 @@
 rm -rf output/*
-rm -rf results/*
+rm -rf raw_data/*
+rm -rf meta/*

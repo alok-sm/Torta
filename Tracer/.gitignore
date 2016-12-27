@@ -1,6 +1,3 @@
-results/
+raw_data/
 output/
-session.txt
-user.txt
-end_time.txt
-start_time.txt
+meta/

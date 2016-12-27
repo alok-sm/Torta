@@ -1,21 +1,21 @@
 cd $TRACER_PATH
 
 # store current user for applescript
-whoami > user.txt
+whoami > meta/user.txt
 
 # touch the "running" file
 touch running
 
 # generate session id
-openssl rand -hex 5 > session.txt
+openssl rand -hex 5 > meta/session.txt
 
-# create results folder
-mkdir results/$(cat session.txt)
+# create raw_data folder
+mkdir raw_data/$(cat meta/session.txt)
 
 # create output folder
-mkdir output/$(cat session.txt)
+mkdir output/$(cat meta/session.txt)
 
 # print session ID
-echo "starting session ID $(cat session.txt)"
+echo "starting session ID $(cat meta/session.txt)"
 
 sudo bash sudo_start.sh
