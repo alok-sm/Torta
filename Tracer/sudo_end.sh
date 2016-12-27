@@ -10,7 +10,11 @@ touch stop_screen_recorder
 # stop key stroke monitor
 touch key_stroke_watcher/stop_key_stroke_watcher
 
-sleep 10
+while [ ! -f ~/Movies/$(cat session.txt).mov ]
+do
+  sleep 2
+done
+
 
 mv ~/Movies/$(cat session.txt).mov output/$(cat session.txt)/screen_recording.mov
 

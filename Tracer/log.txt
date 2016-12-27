@@ -1,4 +1,0 @@
-{"ts": "1482820975", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", "cmd": "rc"}
-{"ts": "1482820975", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", "cmd": "rc"}
-{"ts": "1482820975", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", "cmd": "rc"}
-{"ts": "1482820975", "user": "alok", "host": "mbp.local", "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", "cmd": "rc"}

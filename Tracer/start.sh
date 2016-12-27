@@ -1,8 +1,5 @@
 cd $TRACER_PATH
 
-# store the start time of the session
-date +%s > start_time.txt
-
 # store current user for applescript
 whoami > user.txt
 

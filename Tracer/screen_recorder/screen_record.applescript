@@ -2,9 +2,6 @@
 on run argv
 	set filename to "default"
 
-
-	-- get window position to run click click on
-
 	repeat
 		tell application "System Events"
 			set activeApp to name of first application process whose frontmost is true
@@ -13,6 +10,7 @@ on run argv
 		tell application "System Events" to tell application process activeApp
 			try
 				set appPosition to position of first window
+				set appSize to size of first window
 				exit repeat
 			end try
 		end tell
@@ -34,57 +32,49 @@ on run argv
 			tell process "QuickTime Player"
 				set frontmost to true
 				key code 49
-				do shell script "/usr/local/bin/cliclick c:1,2"
+				do shell script "screen_recorder/cliclick c:" & (item 1 of appPosition + (item 1 of appSize)/2 as integer) & "," & (item 2 of appPosition + 5)
+				do shell script "screen_recorder/cliclick c:" & (item 1 of appPosition + (item 1 of appSize)/2 as integer) & "," & (item 2 of appPosition + 5)
+				do shell script "screen_recorder/cliclick c:" & (item 1 of appPosition + (item 1 of appSize)/2 as integer) & "," & (item 2 of appPosition + 5)
 			end tell
 		end tell
 		
-		tell newScreenRecording
-			start
-			-- repeat
-			-- 	delay 1
-			-- 	try
-			-- 		POSIX file fileTarget as alias
-			-- 		do shell script "rm " & fileTarget
-			-- 		exit repeat
-			-- 	end try
-			-- end repeat
+		tell newScreenRecording to start
 
-			do shell script "/usr/local/bin/cliclick c:" & item 1 of appPosition & "," & item 2 of appPosition
+		do shell script "date +%s > results/$(cat session.txt)/start_time.txt"
 
-			repeat
-				tell application "System Events"
-					set activeApp to name of first application process whose frontmost is true
-				end tell
+		repeat
+			tell application "System Events"
+				set activeApp to name of first application process whose frontmost is true
+			end tell
 
-				tell application "System Events" to tell application process activeApp
-					try
-						set appSize to size of first window
-						set appPosition to position of first window
-
-						set output to 			"{ \"x\": " 		& (item 1 of appPosition)
-						set output to output & 	", \"y\": " 		& (item 2 of appPosition)
-						set output to output & 	", \"width\": " 	& (item 1 of appSize)
-						set output to output & 	", \"height\": " 	& (item 2 of appSize)
-						set output to output & 	", \"app\": \"" 	& activeApp & "\""
-						set output to output & 	", \"timestamp\": " & (do shell script "date +%s") & " }"
-
-						log output
-					end try
-				end tell
-
-
-				delay 0.2
+			tell application "System Events" to tell application process activeApp
 				try
-					POSIX file fileTarget as alias
-					do shell script "rm " & fileTarget
-					exit repeat
+					set appSize to size of first window
+					set appPosition to position of first window
+
+					set output to 			"{ \"x\": " 		& (item 1 of appPosition)
+					set output to output & 	", \"y\": " 		& (item 2 of appPosition)
+					set output to output & 	", \"width\": " 	& (item 1 of appSize)
+					set output to output & 	", \"height\": " 	& (item 2 of appSize)
+					set output to output & 	", \"app\": \"" 	& activeApp & "\""
+					set output to output & 	", \"timestamp\": " & (do shell script "date +%s") & " }"
+
+					log output
 				end try
-			end repeat
+			end tell
 
 
+			delay 0.2
+			try
+				POSIX file fileTarget as alias
+				do shell script "rm " & fileTarget
+				exit repeat
+			end try
+		end repeat
 
-			stop
-		end tell
+		do shell script "date +%s > results/$(cat session.txt)/end_time.txt"
+
+		tell newScreenRecording to stop
 		
 		export document 1 in (file filePath) using settings preset "1080p"
 		close document 1 saving no
