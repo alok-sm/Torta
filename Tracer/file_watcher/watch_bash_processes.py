@@ -4,13 +4,7 @@ import os
 import re
 
 def get_bash_processes():
-	processes = []
-	for process in get_all_processes():
-		process_parent = [parent for parent in processes if process.ppid == parent.pid]
-		if (process.application == '-bash' or any(process_parent)) and process.application != 'ps':
-			processes.append(process)
-
-	return processes
+	return [process for process in get_all_processes() if process.application == '-bash']
 
 
 def get_bash_process_gen():

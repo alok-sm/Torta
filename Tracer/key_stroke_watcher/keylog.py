@@ -24,11 +24,10 @@ os.system("sudo rm {}".format(log_file_path))
 # start the keylogger exec
 subprocess.Popen(["sudo", "./keylogger"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 
-while True:
+while not os.path.isfile("stop_key_stroke_watcher"):
 	time.sleep(1)
-	if os.path.isfile("stop_key_stroke_watcher"):
-		os.remove("stop_key_stroke_watcher")
-		break
+		
+os.remove("stop_key_stroke_watcher")
 
 # kill keylogger
 subprocess.Popen(["sudo", "killall", "keylogger"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)

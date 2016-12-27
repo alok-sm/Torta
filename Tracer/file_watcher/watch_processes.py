@@ -14,6 +14,7 @@ class ProcessStore:
 
 	def update_processes(self):
 		self.processes = next(self.user_process_gen) + next(self.bash_process_gen)
+		# print self.processes
 
 	def get_processes(self):
 		return self.processes

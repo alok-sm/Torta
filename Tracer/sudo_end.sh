@@ -10,6 +10,9 @@ touch stop_screen_recorder
 # stop key stroke monitor
 touch key_stroke_watcher/stop_key_stroke_watcher
 
+# stop file watcher
+touch file_watcher/stop_file_watcher
+
 while [ ! -f ~/Movies/$(cat meta/session.txt).mov ]
 do
   sleep 2
