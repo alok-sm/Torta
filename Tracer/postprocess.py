@@ -8,6 +8,8 @@ keylog = json.load(open('results/{}/keylog.json'.format(session_id)))
 
 window_positions = [json.loads(line) for line in open('results/{}/window_positions.txt'.format(session_id))]
 
+commands = [json.loads(line) for line in open('results/{}/command_log.txt'.format(session_id))]
+
 grouped_positions = []
 
 first_timestamp = window_positions[0]['timestamp']
@@ -45,16 +47,10 @@ for item in window_positions[1:]:
 
 		current_set = [item]
 
-# for grouped_position in grouped_positions:
-# 	print grouped_position
-# print grouped_positions[0][1]
-
-
-# print window_positions
-
 json.dump({
 	"keystrokes": keylog,
-	"window_positions": grouped_positions
+	"window_positions": grouped_positions,
+	"commands": commands
 }, open('output/{}/events.json'.format(session_id), 'w'))
 
 
