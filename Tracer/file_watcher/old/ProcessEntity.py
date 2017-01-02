@@ -1,5 +1,8 @@
 import re
 
+#random comment
+#random comment 2
+
 class ProcessEntity:
 	def __init__(self, line):
 		self.line = line
@@ -14,9 +17,3 @@ class ProcessEntity:
 
 	def __eq__(self, other): 
 		return self.pid == other.pid
-
-	def __hash__(self):
-		try:
-			return int(self.pid)
-		except Exception as e:
-			return -1

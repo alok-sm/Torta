@@ -4,13 +4,13 @@ import os
 import re
 
 def get_bash_processes():
-	return {process for process in get_all_processes() if process.application == '-bash'}
+	return [process for process in get_all_processes() if process.application == '-bash']
 
 
 def get_bash_process_gen():
 	original_processes = get_bash_processes()
 	while True: 
-		yield {process for process in get_bash_processes() if process not in original_processes}
+		yield [process for process in get_bash_processes() if process not in original_processes]
 
 
 def main():

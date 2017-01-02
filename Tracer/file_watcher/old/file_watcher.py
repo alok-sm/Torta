@@ -13,6 +13,7 @@ def run_file_watcher():
 	file_watchers = []
 	file_writers = SyncFileWriters()
 	sessionid = sys.argv[1]
+	tracer_path = sys.argv[2]
 	
 	while not os.path.isfile("stop_file_watcher"):
 		sleep(1)
@@ -22,7 +23,7 @@ def run_file_watcher():
 
 		for process in new_processes:
 			print >> sys.stderr, "[new]", process
-			file_watchers += get_file_watch_threads(sessionid, process.pid, file_writers)
+			file_watchers += get_file_watch_threads(sessionid, process.pid, tracer_path, file_writers)
 
 		prev_processes = all_processes
 

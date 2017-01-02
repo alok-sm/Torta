@@ -41,7 +41,7 @@ def get_abs_path(path, pid):
 	return os.path.join(cwd, path)
 
 class FileWatcherThread(Thread):
-	def __init__(self, sessionid, pid, syscall, file_writers):
+	def __init__(self, sessionid, pid, syscall, tracer_path, file_writers):
 		super(FileWatcherThread, self).__init__()
 		self.sessionid = sessionid
 		self.pid = pid
@@ -49,7 +49,7 @@ class FileWatcherThread(Thread):
 		self.file_writers = file_writers
 		self.cmd = ["sudo", "dtruss", "-f","-t", self.syscall, "-p"] + [self.pid]
 
-		self.basepath = "/Users/alokmysore/watcher/{}/{}/".format(self.sessionid, self.pid)
+		self.basepath = "{}/raw_data/{}/{}/".format(tracer_path, self.sessionid, self.pid)
 
 		self.read_log_path = "{}meta/readlog.txt".format(self.basepath)
 		self.write_log_path = "{}meta/writelog.txt".format(self.basepath)
@@ -103,9 +103,9 @@ class FileWatcherThread(Thread):
 
 		print "stopping"
 
-def get_file_watch_threads(sessionid, pid, file_writers):
-	thread_open = FileWatcherThread(sessionid, str(pid), "open", file_writers)
-	thread_open_nocancel = FileWatcherThread(sessionid, str(pid), "open_nocancel", file_writers)
+def get_file_watch_threads(sessionid, pid, tracer_path, file_writers):
+	thread_open = FileWatcherThread(sessionid, str(pid), "open", tracer_path, file_writers)
+	thread_open_nocancel = FileWatcherThread(sessionid, str(pid), "open_nocancel", tracer_path, file_writers)
 
 	thread_open.start()
 	thread_open_nocancel.start()
@@ -116,6 +116,6 @@ def get_file_watch_threads(sessionid, pid, file_writers):
 if __name__ == '__main__':
 	debug = True
 	file_writers = SyncFileWriters()
-	thread_open, thread_open_nocancel = get_file_watch_threads(sys.argv[1], sys.argv[2],file_writers)
+	thread_open, thread_open_nocancel = get_file_watch_threads(sys.argv[1], sys.argv[2], sys.argv[3], file_writers)
 	thread_open.join()
 	thread_open_nocancel.join()
