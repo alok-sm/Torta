@@ -1,4 +1,4 @@
-# from ProcessEntity import ProcessEntity
+from ProcessEntity import ProcessEntity
 from watch_processes import get_processes_gen
 
 from multiprocessing import Pool
@@ -9,6 +9,7 @@ import subprocess
 import os
 import sys
 import traceback
+import threading
 
 fd_dict = {}
 process_gen = get_processes_gen()
@@ -34,7 +35,7 @@ def to_be_copied(line):
 	return (line['syscall'] == 'open' and line['status'] == 'entry') or line['syscall'] == 'close'
 
 def to_be_logged(line):
-	return (line['syscall'] == 'open' and line['status'] == 'return') or line['syscall'] == 'close'
+	return (line['syscall'] == 'open' and line['status'] == 'return') or line['syscall'] == 'close' or line['syscall'] == 'write'
 
 def handle_line(raw_line):
 	try:
@@ -60,7 +61,7 @@ def handle_line(raw_line):
 			if line['path'] == None or not os.path.isfile(line['path']):
 				return
 
-			cmd = 'cp "{}" "raw_data/{}/{}.{}"'.format(line['path'], session_id, line['path'].split('/')[-1], line['key'])
+			cmd = 'cp "{}" "raw_data/{}/filetrace/{}.{}"'.format(line['path'], session_id, line['path'].split('/')[-1], line['key'])
 			# print cmd
 			os.system(cmd)
 			pass
@@ -76,25 +77,17 @@ pool = Pool(5)
 
 for line in filetracer.stdout:
 	pool.apply_async(handle_line, args=(line,))
-	# handle_line(line)
 	if stop:
 		break
-
 
 def stop_monitor():
 	while not os.path.isfile("stop_key_stroke_watcher"):
 		time.sleep(1)
-	print 'breakking'
 	stop = True
 	pool.terminate()
 	os.remove("stop_key_stroke_watcher")
 	sys.exit()
 
-#comment2
-#{"syscall": "open", "status": "entry", "key": "308878", "path": "/Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist", "pid": 450}
-
-#{"syscall": "open", "status": "return", "key": "308878", "path": "/Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist", "pid": 450, "fd": 12}
-
-#{"syscall": "close", "status": "return", "pid": 450, "fd": 0}
+threading.Thread(target=stop_monitor).start()
 
 

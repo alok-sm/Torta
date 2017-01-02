@@ -25,4 +25,9 @@ syscall::close:return, syscall::close_nocancel:return
 {
 	printf("{\"syscall\": \"close\", \"status\": \"return\", \"pid\": %d, \"fd\": %d}\n", pid, arg0);
 }
+
+syscall::write:return, syscall::write_nocancel:return
+{
+	printf("{\"syscall\": \"write\", \"status\": \"return\", \"pid\": %d, \"fd\": %d}\n", pid, arg0);
+}
 '
