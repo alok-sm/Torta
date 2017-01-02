@@ -28,7 +28,7 @@ def normalize_fd(line):
 	if line['syscall'] == 'open' and line['status'] == 'return':
 		fd_dict[(line['pid'], line['fd'])] = line['path']
 
-	if line['syscall'] == 'close':
+	if line['syscall'] == 'close' or line['syscall'] == 'write':
 		line['path'] = fd_dict.get( (line['pid'], line['fd']), None)
 
 def to_be_copied(line):
@@ -61,7 +61,7 @@ def handle_line(raw_line):
 			if line['path'] == None or not os.path.isfile(line['path']):
 				return
 
-			cmd = 'cp "{}" "raw_data/{}/filetrace/{}.{}"'.format(line['path'], session_id, line['path'].split('/')[-1], line['key'])
+			cmd = 'cp "{}" "raw_data/{}/filetrace/{}.{}" &'.format(line['path'], session_id, line['path'].split('/')[-1], line['key'])
 			# print cmd
 			os.system(cmd)
 			pass
