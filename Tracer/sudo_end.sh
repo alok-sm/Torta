@@ -15,7 +15,8 @@ touch file_watcher/stop_file_watcher
 
 while [ ! -f ~/Movies/$(cat meta/session.txt).mov ]
 do
-  sleep 2
+  echo "waiting for movie to export"
+  sleep 1
 done
 
 

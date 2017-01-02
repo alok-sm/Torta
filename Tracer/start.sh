@@ -3,6 +3,9 @@ cd $TRACER_PATH
 # store current user for applescript
 whoami > meta/user.txt
 
+# store tracer path
+echo $TRACER_PATH > meta/tracer_path.txt
+
 # touch the "running" file
 touch running
 

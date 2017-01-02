@@ -6,6 +6,9 @@ session_id = sys.argv[1]
 
 keylog = json.load(open('raw_data/{}/keylog.json'.format(session_id)))
 
+start_time = int(open('raw_data/{}/start_time.txt'.format(session_id)).readline().strip())
+end_time = int(open('raw_data/{}/end_time.txt'.format(session_id)).readline().strip())
+
 window_positions = [json.loads(line) for line in open('raw_data/{}/window_positions.txt'.format(session_id))]
 
 commands = [json.loads(line) for line in open('raw_data/{}/command_log.txt'.format(session_id))]
@@ -61,17 +64,16 @@ json.dump({
 	"commands": commands
 }, open('output/{}/events.json'.format(session_id), 'w'), sort_keys=True, indent=4)
 
-
-# for i, position in enumerate(grouped_positions):
-# 	cmd = 'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/screen_recording.{i}.mp4 -y'.format(
-# 		session_id = session_id,
-# 		start_time = position['start_time'],
-# 		duration = position['duration'],
-# 		width = position['width'],
-# 		height = position['height'],
-# 		x = position['x'],
-# 		y = position['y'],
-# 		i = i
-# 	)
-# 	# print cmd
-# 	os.system(cmd)
+for i, position in enumerate(grouped_positions):
+	cmd = 'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/screen_recording.{i}.mp4 -y'.format(
+		session_id = session_id,
+		start_time = position['timestamp']['start'] - start_time,
+		duration = position['timestamp']['end'] - position['timestamp']['start'],
+		width = position['position']['w'],
+		height = position['position']['h'],
+		x = position['position']['x'],
+		y = position['position']['y'],
+		i = i
+	)
+	print cmd
+	# os.system(cmd)

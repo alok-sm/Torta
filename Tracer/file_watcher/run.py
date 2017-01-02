@@ -1,4 +1,4 @@
-from ProcessEntity import ProcessEntity
+# from ProcessEntity import ProcessEntity
 from watch_processes import get_processes_gen
 
 from multiprocessing import Pool
@@ -8,13 +8,13 @@ import json
 import subprocess
 import os
 import sys
-
 import traceback
 
 fd_dict = {}
 process_gen = get_processes_gen()
-filetracer_cmd = "sudo bash filetracer.sh"
+filetracer_cmd = "sudo bash file_watcher/filetracer.sh"
 stop = False
+session_id = sys.argv[1]
 
 filetracer = subprocess.Popen(
 	filetracer_cmd, 
@@ -40,8 +40,6 @@ def handle_line(raw_line):
 	try:
 		timestamp = int(time.time())
 
-		# print >> sys.stderr, "."
-
 		launched_processes, watched_processes = next(process_gen)
 
 		line = json.loads(raw_line)
@@ -52,9 +50,6 @@ def handle_line(raw_line):
 		if line['pid'] not in watched_processes:
 			return
 
-		if 'path' in line and ( line['path'] == None or os.path.isfile(line['path']) ):
-			return
-
 		if 'fd' in line and line['fd'] < 0:
 			return
 
@@ -62,8 +57,12 @@ def handle_line(raw_line):
 			print raw_line,
 
 		if to_be_copied(line):
-			# os.system('cp "{}" "{}"'.format())
-			# print "copying"
+			if line['path'] == None or not os.path.isfile(line['path']):
+				return
+
+			cmd = 'cp "{}" "raw_data/{}/{}.{}"'.format(line['path'], session_id, line['path'].split('/')[-1], line['key'])
+			# print cmd
+			os.system(cmd)
 			pass
 
 		pass
@@ -91,7 +90,7 @@ def stop_monitor():
 	os.remove("stop_key_stroke_watcher")
 	sys.exit()
 
-
+#comment2
 #{"syscall": "open", "status": "entry", "key": "308878", "path": "/Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist", "pid": 450}
 
 #{"syscall": "open", "status": "return", "key": "308878", "path": "/Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist", "pid": 450, "fd": 12}
