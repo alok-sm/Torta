@@ -1,3 +1,10 @@
-video{
+video {
 	width: 100%;
+}
+
+.hide-btn { 
+	visibility: hidden; 
+}
+.file-row:hover > .hide-btn { 
+	visibility: visible; 
 }
