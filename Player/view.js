@@ -44,7 +44,11 @@ function getFiles(windowPosition){
 
 	for (var i = 0; i < files.length; i++) {
 		file = files[i];
-		str += "<div class='file-row'>" +
+		// pathIsHidden(file.path);
+		if(pathIsHidden(file.path)){
+
+		}else{
+			str += "<div class='file-row'>" +
 					"<button class='hide-btn btn btn-default'>" +
 						"<span class='glyphicon glyphicon-remove'></span>" + 
 					"</button>" +
@@ -52,6 +56,7 @@ function getFiles(windowPosition){
 					"<a class='filepath' href='/recordings/" + sessionId + "/filetrace/" + file.path.split("/").pop() + "." + file.key + "' target='_blank'>" + file.path + "</a>" + 
 					"<br>" +
 				"</div>";
+		}
 	}
 
 	str += 		"</ul>"
@@ -70,7 +75,34 @@ function getContent(windowPosition){
 		"</div>";
 }
 
+function pathIsHidden(path){
+	for (var i = 0; i < eventLog.hidden_files.length; i++) {
+		directoryStructure = eventLog.hidden_files[i].split("/");
+		pathDirectoryStructure = path.split("/");
+
+		console.log(path + " vs " + eventLog.hidden_files[i]);
+
+		var pathMatched = true;
+
+		for (var i = 0; i < directoryStructure.length; i++) {
+			if(directoryStructure[i] != pathDirectoryStructure[i]){
+				pathMatched = false;
+				break;
+			}
+		}
+
+		if(pathMatched){
+			console.log("true");
+			return true;
+		}
+	}
+
+	console.log("false");
+	return false;
+}
+
 function render(){
+	$("#data-container").html("");
 	for (var i = 0; i < eventLog.window_positions.length; i++) {
 		var windowPosition = eventLog.window_positions[i];
 		$("#data-container").append(getContent(windowPosition, eventLog));
@@ -87,13 +119,13 @@ function onGetEventLog(_eventLog){
 }
 
 function addEntitiyToBeHidden(path){
-	path = path.replace(/\/$/, "") + "/";
+	path = path.replace(/\/$/, "");
 	eventLog.hidden_files.push(path);
 	render()
 }
 
 function hideButtonClick(){
-	var clickedHref = $(this).siblings('.filepath').attr('href');
+	var clickedHref = $(this).siblings('.filepath').text();
 	bootbox.confirm({
 		title: "Remove a file entry",
 		message: "What do you want to remove?",
