@@ -1,33 +1,27 @@
 #!/bin/sh
 /usr/sbin/dtrace -w -n '
 #pragma D option quiet
+#pragma D option switchrate=100hz
 
-syscall::open:entry, syscall::open_nocancel:entry, syscall::open_extended:entry
+syscall::open*:entry
 {
-	key = rand();
-	path = cleanpath(copyinstr(arg0));
-	printf("{\"syscall\": \"open\", \"status\": \"entry\", \"key\": \"%d\", \"path\": \"%s\", \"pid\": %d}\n", key, path, pid);
-
-	self->pathp = arg0;
-	self->key = key;
+	self->key = rand();
+	self->path = cleanpath(copyinstr(arg0));
+	printf("{\"syscall\": \"open\", \"status\": \"entry\", \"key\": \"%d\", \"path\": \"%s\", \"pid\": %d}\n", self->key, self->path, pid);
 }
 
-syscall::open:return, syscall::open_nocancel:return, syscall::open_extended:return
+syscall::open*:return
 {
-	path = cleanpath(copyinstr(self->pathp));
-	key = self->key;
-
-	printf("{\"syscall\": \"open\", \"status\": \"return\", \"key\": \"%d\", \"path\": \"%s\", \"pid\": %d, \"fd\": %d}\n", key, path, pid, arg0);
-
+	printf("{\"syscall\": \"open\", \"status\": \"return\", \"key\": \"%d\", \"path\": \"%s\", \"pid\": %d, \"fd\": %d}\n", self->key, self->path, pid, arg0);
 }
 
-syscall::close:return, syscall::close_nocancel:return
+syscall::close*:entry
 {
-	printf("{\"syscall\": \"close\", \"status\": \"return\", \"pid\": %d, \"fd\": %d}\n", pid, arg0);
+	printf("{\"syscall\": \"close\", \"status\": \"return\", \"key\": \"%d\", \"pid\": %d, \"fd\": %d}\n", rand(), pid, arg0);
 }
 
-syscall::write:return, syscall::write_nocancel:return
+syscall::write*:entry
 {
-	printf("{\"syscall\": \"write\", \"status\": \"return\", \"pid\": %d, \"fd\": %d}\n", pid, arg0);
+	printf("{\"syscall\": \"write\", \"status\": \"return\", \"key\": \"%d\", \"pid\": %d, \"fd\": %d}\n", rand(), pid, arg0);
 }
 '

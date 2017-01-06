@@ -25,7 +25,7 @@ app = window_positions[0]['app']
 
 current_set = [window_positions[0]]
 
-for item in window_positions[1:] + [None]:
+for i, item in enumerate(window_positions[1:] + [None]):
 	# print item
 	if item != None and item['x'] == x and item['y'] == y and item['width'] == width and item['height'] == height and item['app'] == app:
 		current_set.append(item)
@@ -44,7 +44,8 @@ for item in window_positions[1:] + [None]:
 				'h': start_position['height'],
 				'w': start_position['width']
 			},
-			'app': start_position['app']
+			'app': start_position['app'],
+			'screencast': 'screen_recording.{}.mp4'.format(i)
 		})
 
 		if item == None:
@@ -75,5 +76,5 @@ for i, position in enumerate(grouped_positions):
 		y = position['position']['y'],
 		i = i
 	)
-	print cmd
-	# os.system(cmd)
+	# print cmd
+	os.system(cmd)

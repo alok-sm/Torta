@@ -294,7 +294,7 @@ fi;
 
 preexec_log() {
 	if [ -f $TRACER_PATH/running ]; then
-        echo "{\"timestamp\": $(date +%s), \"user\": \"$(whoami)\", \"host\": \"$(hostname)\", \"pwd\": \"$(pwd)\", \"cmd\": \"$*\"}" >> raw_data/$(cat meta/session.txt)/command_log.txt; 
+        echo "{\"timestamp\": $(date +%s), \"user\": \"$(whoami)\", \"host\": \"$(hostname)\", \"pwd\": \"$(pwd)\", \"cmd\": \"$*\"}" >> $TRACER_PATH/raw_data/$(cat $TRACER_PATH/meta/session.txt)/command_log.txt; 
 	    # echo "{\"ts\": $(date +%s), \"user\": \"$(whoami)\", \"host\": \"$(hostname)\", \"pwd\": \"$(pwd)\", \"cmd\": \"$*\"}"; 
 	fi
 }

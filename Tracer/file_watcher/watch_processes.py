@@ -29,34 +29,36 @@ class ProcessStore:
 	def get_watched_processes(self):
 		return self.watched_processes
 
-
-def get_processes_gen():
-	process_store = ProcessStore()
-
-	def process_update_daemon_function():
+class ProcessItr:
+	def process_update_daemon_function(self):
 		while True:
-			process_store.update_processes()
+			self.process_store.update_processes()
 			time.sleep(1)
 
-	def watched_process_update_daemon_function():
+	def watched_process_update_daemon_function(self):
 		while True:
-			process_store.update_watched_processes()
+			self.process_store.update_watched_processes()
 			time.sleep(1)
 
-	process_update_daemon = Thread(target=process_update_daemon_function)
-	watched_process_update_daemon = Thread(target=watched_process_update_daemon_function)
-	process_update_daemon.start()
-	watched_process_update_daemon.start()
+	def __init__(self):
+		self.process_store = ProcessStore()
 
-	while True:
-		yield process_store.get_processes(), process_store.get_watched_processes()
+		self.process_update_daemon = Thread(target=self.process_update_daemon_function)
+		self.watched_process_update_daemon = Thread(target=self.watched_process_update_daemon_function)
+		self.process_update_daemon.start()
+		self.watched_process_update_daemon.start()
 
+	def __iter__(self):
+		return self
+
+	def next(self):
+		return self.process_store.get_processes(), self.process_store.get_watched_processes()
 
 def main():
 	import time
-	process_gen = get_processes_gen()
+	process_itr = ProcessItr()
 	while True:
-		launched_processes, watched_processes = next(process_gen)
+		launched_processes, watched_processes = next(process_itr)
 		print watched_processes
 		print launched_processes
 		print '-'
