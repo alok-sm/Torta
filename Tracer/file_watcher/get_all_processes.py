@@ -24,3 +24,10 @@ def list_parent_processes(pid):
 		pass
 		
 	return parents
+
+def main():
+	import sys
+	print list_parent_processes(sys.argv[1])
+
+if __name__ == '__main__':
+	main()

@@ -2,9 +2,9 @@ video {
 	width: 100%;
 }
 
-.hide-btn { 
+.file-btn { 
 	visibility: hidden; 
 }
-.file-row:hover > .hide-btn { 
+.file-row:hover > .file-btn { 
 	visibility: visible; 
 }
