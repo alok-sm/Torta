@@ -81,44 +81,44 @@ function getFilesHtml(files){
 	if(!files){
 		return "";
 	}
-	var str = "<ul>";
+	// var str = "<ul>";
 
-	for (var i = 0; i < files.length; i++) {
-		file = files[i];
-		if(pathIsHidden(file.path)){
-			str += "<div class='file-row'>" +
-					"<button class='unhide-btn file-btn btn btn-default'>" +
-						"<span class='glyphicon glyphicon-plus'></span>" + 
-					"</button>" +
-					"<button class='btn btn-default'>" +
-						fileOperation[file.syscall] +
-					"</button>" +
-					"<span>&nbsp;&nbsp;&nbsp;</span>" +
-					"<strike>" +
-						"<a class='filepath' href='/recordings/" + sessionId + "/filetrace/" + file.path.split("/").pop() + "." + file.key + "' target='_blank'>" + file.path + "</a>" + 
-						getNewPath(file) +
-					"</strike>" +
-					"<br>" +
-				"</div>";
-		}else{
-			str += "<div class='file-row'>" +
-					"<button class='hide-btn file-btn btn btn-default'>" +
-						"<span class='glyphicon glyphicon-remove'></span>" + 
-					"</button>" +
-					"<button class='btn btn-default'>" +
-						fileOperation[file.syscall] +
-					"</button>" +
-					"<span>&nbsp;&nbsp;&nbsp;</span>" +
-					"<a class='filepath' href='/recordings/" + sessionId + "/filetrace/" + file.path.split("/").pop() + "." + file.key + "' target='_blank'>" + file.path + "</a>" + 
-					getNewPath(file) +
-					"<br>" +
-				"</div>";
-		}
-	}
+	// for (var i = 0; i < files.length; i++) {
+	// 	file = files[i];
+	// 	if(pathIsHidden(file.path)){
+	// 		str += "<div class='file-row'>" +
+	// 				"<button class='unhide-btn file-btn btn btn-default'>" +
+	// 					"<span class='glyphicon glyphicon-plus'></span>" + 
+	// 				"</button>" +
+	// 				"<button class='btn btn-default'>" +
+	// 					fileOperation[file.syscall] +
+	// 				"</button>" +
+	// 				"<span>&nbsp;&nbsp;&nbsp;</span>" +
+	// 				"<strike>" +
+	// 					"<a class='filepath' href='/recordings/" + sessionId + "/filetrace/" + file.path.split("/").pop() + "." + file.key + "' target='_blank'>" + file.path + "</a>" + 
+	// 					getNewPath(file) +
+	// 				"</strike>" +
+	// 				"<br>" +
+	// 			"</div>";
+	// 	}else{
+	// 		str += "<div class='file-row'>" +
+	// 				"<button class='hide-btn file-btn btn btn-default'>" +
+	// 					"<span class='glyphicon glyphicon-remove'></span>" + 
+	// 				"</button>" +
+	// 				"<button class='btn btn-default'>" +
+	// 					fileOperation[file.syscall] +
+	// 				"</button>" +
+	// 				"<span>&nbsp;&nbsp;&nbsp;</span>" +
+	// 				"<a class='filepath' href='/recordings/" + sessionId + "/filetrace/" + file.path.split("/").pop() + "." + file.key + "' target='_blank'>" + file.path + "</a>" + 
+	// 				getNewPath(file) +
+	// 				"<br>" +
+	// 			"</div>";
+	// 	}
+	// }
 
-	str += 	"</ul>";
+	// str += 	"</ul>";
 
-	return str;
+	return '<div id="jstree_div"></div>';
 }
 
 function getFiles(windowPosition){

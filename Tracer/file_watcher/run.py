@@ -120,14 +120,3 @@ pool = Pool(number_of_threads)
 while not stop:
 	line = sys.stdin.readline()
 	pool.apply_async(handle_line, args=(line,))
-
-
-# def stop_monitor():
-# 	while not os.path.isfile("stop_key_stroke_watcher"):
-# 		time.sleep(1)
-# 	stop = True
-# 	pool.terminate()
-# 	os.remove("stop_key_stroke_watcher")
-# 	sys.exit()
-
-# threading.Thread(target=stop_monitor).start()

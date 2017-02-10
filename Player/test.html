@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+</head>
+<body>
+    <h1>Testing Treeify</h1>
+    <div id="jstree_demo_div"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="treeify.js"></script>
+    <script>
+        var filestructure = {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [], 
+                      "state": {
+                        "disabled": false, 
+                        "opened": true
+                      }, 
+                      "text": "Procfile"
+                    }
+                  ], 
+                  "state": {
+                    "disabled": false, 
+                    "opened": true
+                  }, 
+                  "text": "folder2"
+                },
+                {
+                  "children":[
+                    {
+                      "children": [], 
+                      "state": {
+                        "disabled": false, 
+                        "opened": true
+                      }, 
+                      "text": "server.js"
+                    }, 
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [], 
+                              "state": {
+                                "disabled": true, 
+                                "opened": false
+                              }, 
+                              "text": ".gitignore"
+                            }, 
+                            {
+                              "children": [], 
+                              "state": {
+                                "disabled": false, 
+                                "opened": true
+                              }, 
+                              "text": "LICENSE.txt"
+                            }, 
+                            {
+                              "children": [], 
+                              "state": {
+                                "disabled": false, 
+                                "opened": true
+                              }, 
+                              "text": "package.json"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [], 
+                                  "state": {
+                                    "disabled": false, 
+                                    "opened": true
+                                  }, 
+                                  "text": "index.html"
+                                }
+                              ], 
+                              "state": {
+                                "disabled": false, 
+                                "opened": true
+                              }, 
+                              "text": "static"
+                            }
+                          ], 
+                          "state": {
+                            "disabled": false, 
+                            "opened": true
+                          }, 
+                          "text": "lab1"
+                        }
+                      ], 
+                      "state": {
+                        "disabled": false, 
+                        "opened": true
+                      }, 
+                      "text": "torta-test"
+                    }
+                  ], 
+                  "state": {
+                    "disabled": false, 
+                    "opened": true
+                  }, 
+                  "text": "alokmysore"
+                }
+              ], 
+              "state": {
+                "disabled": false, 
+                "opened": true
+              }, 
+              "text": "Users"
+            }
+          ], 
+          "state": {
+            "disabled": false, 
+            "opened": true
+          }, 
+          "text": "/"
+        }
+        $(function(){
+            treeify('#jstree_demo_div', filestructure);
+        })
+    </script>
+</body>
+</html>
