@@ -1,4 +1,29 @@
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
+
+function clean(node){
+    if(node.children.length == 0){
+        node.icon = "glyphicon glyphicon-file";
+        delete node.children;
+    }else{
+        node.icon = "glyphicon glyphicon-folder-open"
+        for (var i = 0; i < node.children.length; i++) {
+            clean(node.children[i]);
+        }
+    }
+}
+
+
 function treeify(selector, data){
+    if(isEmpty(data)){
+        return;
+    }
     clean(data);
     $(selector).jstree({ 
         'core' : {
@@ -17,9 +42,10 @@ function treeify(selector, data){
                         label: label,
                         action: function () {
                             if(disabled){
-                                $(node).find('a').removeClass('jstree-disabled')
+                                $(node).find('.jstree-anchor').removeClass('jstree-disabled')
                             }else{
-                                $(node).find('a').addClass('jstree-disabled')
+                                $(node).find('.jstree-anchor').addClass('jstree-disabled')
+                                $(node).addClass('jstree-closed')
                             }
                         }
                     }
@@ -27,15 +53,4 @@ function treeify(selector, data){
             }
         }
     }); 
-}
-
-function clean(node){
-    if(node.children.length == 0){
-        node.icon = "glyphicon glyphicon-file";
-    }else{
-        node.icon = "glyphicon glyphicon-folder-open"
-        for (var i = 0; i < node.children.length; i++) {
-            clean(node.children[i])
-        }
-    }
 }
