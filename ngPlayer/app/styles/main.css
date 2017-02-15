@@ -1,0 +1,66 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.grey-text{
+    color: #888
+}
+
+.command-box{
+    background: #ddd;
+    border: #000;
+    margin-bottom: 30px;
+}
+
+.fstree-box{
+    margin: 10px;
+    background: #ccc;
+}
+
+.fstree-box div{
+    margin: 30px;
+}
+
+.window-clip{
+    width: 90%;
+}
+
+.full-textarea{
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.header{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+}
+
+a[ng-click]{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
