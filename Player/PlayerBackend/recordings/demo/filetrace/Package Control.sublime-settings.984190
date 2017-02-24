@@ -1,0 +1,13 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Package Control",
+		"pastebin-sublime-plugin",
+		"Pretty JSON",
+		"rsub"
+	]
+}
