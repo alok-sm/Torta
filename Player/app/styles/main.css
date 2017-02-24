@@ -9,18 +9,31 @@
     color: #888
 }
 
+.color_green {
+    color: green;
+}
+
 .command-box{
     background: #ddd;
     border: #000;
+    border-radius: 5px;
     margin-bottom: 30px;
+}
+
+.fstree-header{
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .fstree-box{
     margin: 10px;
     background: #ccc;
+    border-radius: 5px;
 }
 
-.fstree-box div{
+.fstree-box .fstree{
     margin: 30px;
 }
 
@@ -35,6 +48,42 @@
     max-width: 100%;
     min-height: 100%;
     min-width: 100%;
+}
+
+.window-header{
+    padding: 10px 30px 10px 30px;
+    background: white;
+    font-size: 25px;
+}
+
+.window-container{
+    background: #efefef;
+    padding: 30px;
+}
+
+.window-parent{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.strikethrough{
+    text-decoration: line-through;
+}
+
+.monospace-font{
+    font-family: monospace;
+}
+
+.command-container{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.command-header{
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
 }
 
 .header{

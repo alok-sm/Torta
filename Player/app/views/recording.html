@@ -16,56 +16,10 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a ng-click="saveChanges()">Save Changes</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
-<div ng-repeat="window in windows">
-    <div class='jumbotron'>
-        <h2>{{window.app}}</h2>
-
-        <div class="container-fluid">
-            <div class="row row-eq-height">
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <center>
-                        <video class="window-clip" controls ng-src="{{fileApiUrl + recordingId + '/' + window.screencast}}">
-                        </video>
-                    </center>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <textarea 
-                            class="form-control full-textarea" 
-                            placeholder="Caption"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <div ng-if="window.commands && window.commands.length > 0">
-            <h4 >Commands</h4>
-            <div class="command-box" ng-repeat="command in window.commands">
-                <div class="container-fluid">
-                    <div class="row">
-                        <pre><span class="grey-text">{{command.user}}@{{command.pwd}}$ </span><strong>{{command.cmd}}<strong></pre>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                            <center>
-                                <video class="window-clip" controls ng-src="{{fileApiUrl + recordingId + '/' + window.screencast}}">
-                                </video>
-                            </center>
-                        </div>
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <textarea 
-                                    class="form-control full-textarea" 
-                                    placeholder="Caption"></textarea>
-                        </div>
-                    </div>
-                    <div class="row fstree-box" ng-if="command.filestructure">
-                        <pre>File Changes</pre>
-                        <div js-tree ng-model="command.filestructure"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div ng-repeat="appWindow in windows">
+    <app-window window="appWindow"></app-window>
 </div>

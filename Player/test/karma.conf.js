@@ -32,6 +32,9 @@ module.exports = function(config) {
       'bower_components/underscore/underscore.js',
       'bower_components/jstree/dist/jstree.js',
       'bower_components/ng-js-tree/dist/ngJsTree.js',
+      'bower_components/bootbox/bootbox.js',
+      'bower_components/clipboard/dist/clipboard.js',
+      'bower_components/ngclipboard/dist/ngclipboard.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

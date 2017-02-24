@@ -11,7 +11,10 @@
     "angular-sanitize": "^1.4.0",
     "angular-touch": "^1.4.0",
     "underscore": "^1.8.3",
-    "ng-js-tree": "^0.0.10"
+    "ng-js-tree": "^0.0.10",
+    "bootbox": "^4.4.0",
+    "clipboard": "^1.6.0",
+    "ngclipboard": "^1.1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
