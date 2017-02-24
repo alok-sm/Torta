@@ -27,15 +27,15 @@ angular
               controller: 'Error404Ctrl',
               controllerAs: 'error404'
             })
-            .when('/recording/:id', {
-              templateUrl: 'views/recording.html',
-              controller: 'RecordingCtrl',
-              controllerAs: 'recording'
+            .when('/editor/:id', {
+              templateUrl: 'views/editor.html',
+              controller: 'EditorCtrl',
+              controllerAs: 'editor'
             })
-            .when('/test', {
-              templateUrl: 'views/test.html',
-              controller: 'TestCtrl',
-              controllerAs: 'test'
+            .when('/viewer/:id', {
+              templateUrl: 'views/viewer.html',
+              controller: 'ViewerCtrl',
+              controllerAs: 'viewer'
             })
             .otherwise({
                 redirectTo: '/error404'

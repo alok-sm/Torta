@@ -2,7 +2,11 @@
 
 angular.module('ngPlayerApp')
     .controller('MainCtrl', function ($scope, $location) {
-        $scope.goToRecording = function(){
-            $location.path('/recording/' + $scope.recordingId);
+        $scope.goToEditor = function(){
+            $location.path('/editor/' + $scope.recordingId);
+        };
+
+        $scope.goToViewer = function(){
+            $location.path('/viewer/' + $scope.recordingId);
         };
     });

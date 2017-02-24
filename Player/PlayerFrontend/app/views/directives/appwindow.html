@@ -1,37 +1,68 @@
-<div class="window-parent">
-        <div class="window-header">
-            <span ng-class="{strikethrough: !window.visible}">{{window.app}}</span>
-            <button 
-                ng-show="window.visible"
-                class="btn btn-danger btn-sm pull-right"
-                ng-click="window.visible = false">Hide</button>
-            <button 
-                ng-hide="window.visible"
-                class="btn btn-success btn-sm pull-right"
-                ng-click="window.visible = true">Show</button>
+<div 
+    class="window-parent"
+    ng-if="editable || window.visibility !== 'hide'">
+    <div class="window-header">
+        <span 
+            ng-class="{strikethrough: window.visibility === 'hide', 'grey-text' : window.visibility === 'hide'}">{{window.app}}</span>
+
+        <div ng-if="editable" class="btn-group btn-group-sm pull-right">
+            <label class="btn btn-success btn-radio">
+                <input
+                    value="show" 
+                    type="radio" 
+                    ng-model="window.visibility"> Show</input>
+            </label>
+            <label class="btn btn-warning btn-radio">
+                <input
+                    value="collapse" 
+                    type="radio" 
+                    ng-model="window.visibility"> Collapse</input>
+            </label>
+            <label class="btn btn-danger btn-radio">
+                <input
+                    value="hide" 
+                    type="radio" 
+                    ng-model="window.visibility"> Hide</input>
+            </label>
         </div>
-        <div class="window-container" ng-show="window.visible">
-            <div class="container-fluid">
-                <div class="row row-eq-height">
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <center>
-                            <video class="window-clip" controls ng-src="{{fileServerUrl + recordingId + '/' + window.screencast}}">
-                            </video>
-                        </center>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <textarea 
-                            class="form-control full-textarea" 
-                            placeholder="Caption"></textarea>
-                    </div>
+
+        <button
+            ng-if="!editable && window.visibility === 'collapse'"
+            class="btn btn-success btn-sm pull-right"
+            ng-click="window.visibility = 'show'">Show</button>
+
+        <button 
+            ng-if="!editable && window.visibility === 'show'"
+            class="btn btn-warning btn-sm pull-right"
+            ng-click="window.visibility = 'collapse'">Collapse</button>
+
+    </div>
+    <div class="window-container" ng-show="window.visibility === 'show'">
+        <div class="container-fluid">
+            <div class="row row-eq-height">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <center>
+                        <video class="window-clip" controls ng-src="{{fileServerUrl + recordingId + '/' + window.screencast}}">
+                        </video>
+                    </center>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <textarea 
+                        ng-readonly="!editable"
+                        ng-model="window.summary"
+                        class="form-control full-textarea" 
+                        placeholder="{{editable? 'Summary': ''}}"></textarea>
                 </div>
             </div>
+        </div>
 
-            <div ng-if="window.commands && window.commands.length > 0">
-                <h4 >Commands</h4>
-                <div ng-repeat="command in window.commands">
-                    <terminal-command command="command"></terminal-command>
-                </div>
+        <div ng-if="window.commands && window.commands.length > 0">
+            <h4 >Commands</h4>
+            <div ng-repeat="command in window.commands">
+                <terminal-command
+                    editable="{{editable}}" 
+                    command="command"></terminal-command>
             </div>
         </div>
     </div>
+</div>

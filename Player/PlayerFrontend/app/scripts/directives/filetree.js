@@ -1,5 +1,6 @@
 'use strict';
 
+//TODO: file statuses
 function preProcessFileTree(node){
     if(!node || !node.children){
         return 0;
@@ -31,8 +32,13 @@ angular.module('ngPlayerApp')
             scope: {
                 tree: '='
             },
-            link: function postLink($scope) {
-                preProcessFileTree($scope.tree);
+            link: function postLink($scope, element, attributes) {
+                $scope.editable = attributes.editable === 'true';
+                
+                if(!$scope.editable){
+                    preProcessFileTree($scope.tree);    
+                }
+
                 $scope.treeConfig = { 
                     'plugins' : [
                         'contextmenu'

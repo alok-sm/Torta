@@ -1,10 +1,12 @@
-<div class="command-box"    >
+<div 
+    class="command-box"
+    ng-if="editable || command.visibility !== 'hide'">
     <div class="container-fluid command-container">
         <div class="row">
             <div class="command-header">
                 <span 
                     class="monospace-font"
-                    ng-class="{strikethrough: !command.visible}">
+                    ng-class="{strikethrough: command.visibility === 'hide'}">
                     <span class="grey-text">$USER</span>
                     <span class="grey-text">@</span>
                     <span class="grey-text">$HOME</span>
@@ -15,17 +17,41 @@
                         {{command.cmd}}
                     <strong>
                 </span>
-                <button 
-                    ng-show="command.visible" 
-                    class="btn btn-danger btn-xs pull-right"
-                    ng-click="command.visible = false">Hide</button>
-                <button 
-                    ng-hide="command.visible"
+
+                <div ng-if="editable" class="btn-group btn-group-xs pull-right">
+                    <label class="btn btn-success btn-radio">
+                        <input
+                            value="show" 
+                            type="radio" 
+                            ng-model="command.visibility"> Show</input>
+                    </label>
+                    <label class="btn btn-warning btn-radio">
+                        <input
+                            value="collapse" 
+                            type="radio" 
+                            ng-model="command.visibility"> Collapse</input>
+                    </label>
+                    <label class="btn btn-danger btn-radio">
+                        <input
+                            value="hide" 
+                            type="radio" 
+                            ng-model="command.visibility"> Hide</input>
+                    </label>
+                </div>
+
+                <button
+                    ng-if="!editable && command.visibility === 'collapse'"
                     class="btn btn-success btn-xs pull-right"
-                    ng-click="command.visible = true">Show</button>
+                    ng-click="command.visibility = 'show'">Show</button>
+
+                <button 
+                    ng-if="!editable && command.visibility === 'show'"
+                    class="btn btn-warning btn-xs pull-right"
+                    ng-click="command.visibility = 'collapse'">Collapse</button>
+
             </div>
         </div>
-        <div ng-show="command.visible">
+        <div ng-show="command.visibility === 'show'">
             <div class="row row-eq-height">
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <center>
@@ -35,11 +61,13 @@
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <textarea 
+                            ng-readonly="!editable"
+                            ng-model="window.summary"
                             class="form-control full-textarea" 
-                            placeholder="Caption"></textarea>
+                            placeholder="{{editable? 'Summary': ''}}"></textarea>
                 </div>
             </div>
-            <file-tree tree="command.filestructure"></file-tree>
+            <file-tree editable="{{editable}}" tree="command.filestructure"></file-tree>
         </div>
     </div>
 </div>

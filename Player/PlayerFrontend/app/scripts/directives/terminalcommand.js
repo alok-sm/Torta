@@ -8,12 +8,17 @@ angular.module('ngPlayerApp')
             scope: {
                 command: '='
             },
-            link: function postLink($scope) {
+            link: function postLink($scope, element, attributes) {
+                $scope.editable = attributes.editable === 'true';
                 $scope.recordingId = $routeParams.id;
                 $scope.fileServerUrl = constants.fileServerUrl;
 
-                if($scope.command.visible !== false){
-                    $scope.command.visible = true;
+                if($scope.command.summary === undefined){
+                    $scope.command.summary = '';
+                }
+
+                if(!$scope.command.visibility){
+                    $scope.command.visibility = 'show';
                 }
             }
         };

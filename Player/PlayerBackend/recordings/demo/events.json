@@ -6,32 +6,40 @@
                 "cmd": "cd", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", 
+                "summary": "", 
                 "timestamp": 1484296625, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": false
             }, 
             {
                 "cmd": "mkdir torta-test", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore", 
+                "summary": "", 
                 "timestamp": 1484296630, 
                 "user": "alok", 
+                "visibility": "hide", 
                 "visible": true
             }, 
             {
                 "cmd": "cd torta-test/", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore", 
+                "summary": "", 
                 "timestamp": 1484296632, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "summary": "", 
                 "timestamp": 1484296632, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
@@ -4109,7 +4117,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [10 new files] hooks"
+                                                                    "text": "hooks"
                                                                 }, 
                                                                 {
                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -4138,7 +4146,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [1 new file] info"
+                                                                    "text": "info"
                                                                 }, 
                                                                 {
                                                                     "children": [
@@ -4171,7 +4179,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [1 new file] heads"
+                                                                                    "text": "heads"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -4193,7 +4201,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [1 new file] origin"
+                                                                                            "text": "origin"
                                                                                         }
                                                                                     ], 
                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -4202,7 +4210,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [1 new file] remotes"
+                                                                                    "text": "remotes"
                                                                                 }
                                                                             ], 
                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -4211,7 +4219,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [2 new files] refs"
+                                                                            "text": "refs"
                                                                         }
                                                                     ], 
                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -4220,7 +4228,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [3 new files] logs"
+                                                                    "text": "logs"
                                                                 }, 
                                                                 {
                                                                     "children": [
@@ -4251,7 +4259,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [2 new files] pack"
+                                                                            "text": "pack"
                                                                         }
                                                                     ], 
                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -4260,7 +4268,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [2 new files] objects"
+                                                                    "text": "objects"
                                                                 }, 
                                                                 {
                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -4291,7 +4299,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [1 new file] heads"
+                                                                            "text": "heads"
                                                                         }, 
                                                                         {
                                                                             "children": [
@@ -4313,7 +4321,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [1 new file] origin"
+                                                                                    "text": "origin"
                                                                                 }
                                                                             ], 
                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -4322,7 +4330,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [1 new file] remotes"
+                                                                            "text": "remotes"
                                                                         }
                                                                     ], 
                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -4331,7 +4339,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [2 new files] refs"
+                                                                    "text": "refs"
                                                                 }
                                                             ], 
                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -4340,7 +4348,7 @@
                                                                 "opened": true, 
                                                                 "selected": false
                                                             }, 
-                                                            "text": "[0 new files] [0 new files] [23 new files] .git"
+                                                            "text": ".git"
                                                         }, 
                                                         {
                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -4380,7 +4388,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [1 new file] .bin"
+                                                                    "text": ".bin"
                                                                 }, 
                                                                 {
                                                                     "children": [
@@ -4420,7 +4428,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [1 new file] bin"
+                                                                            "text": "bin"
                                                                         }, 
                                                                         {
                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -4514,7 +4522,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [2 new files] router"
+                                                                                    "text": "router"
                                                                                 }, 
                                                                                 {
                                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -4541,7 +4549,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [9 new files] lib"
+                                                                            "text": "lib"
                                                                         }, 
                                                                         {
                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -4628,7 +4636,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [1 new file] tests"
+                                                                                            "text": "tests"
                                                                                         }
                                                                                     ], 
                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -4637,7 +4645,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [6 new files] buffer-crc32"
+                                                                                    "text": "buffer-crc32"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -4706,7 +4714,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [4 new files] keypress"
+                                                                                                    "text": "keypress"
                                                                                                 }
                                                                                             ], 
                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -4715,7 +4723,7 @@
                                                                                                 "opened": false, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [4 new files] node_modules"
+                                                                                            "text": "node_modules"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -4742,7 +4750,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [8 new files] commander"
+                                                                                    "text": "commander"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -4993,7 +5001,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [4 new files] session"
+                                                                                                            "text": "session"
                                                                                                         }, 
                                                                                                         {
                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -5056,7 +5064,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [26 new files] middleware"
+                                                                                                    "text": "middleware"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -5834,7 +5842,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [80 new files] icons"
+                                                                                                            "text": "icons"
                                                                                                         }, 
                                                                                                         {
                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -5852,7 +5860,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [84 new files] public"
+                                                                                                    "text": "public"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -5870,7 +5878,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [116 new files] lib"
+                                                                                            "text": "lib"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -5955,7 +5963,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [7 new files] batch"
+                                                                                                    "text": "batch"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -6029,7 +6037,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [7 new files] bytes"
+                                                                                                    "text": "bytes"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -6105,7 +6113,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [3 new files] examples"
+                                                                                                            "text": "examples"
                                                                                                         }, 
                                                                                                         {
                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -6174,7 +6182,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [3 new files] examples"
+                                                                                                                            "text": "examples"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -6248,7 +6256,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [5 new files] lib"
+                                                                                                                            "text": "lib"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -6290,7 +6298,7 @@
                                                                                                                                                 "opened": true, 
                                                                                                                                                 "selected": false
                                                                                                                                             }, 
-                                                                                                                                            "text": "[0 new files] [0 new files] [1 new file] lib"
+                                                                                                                                            "text": "lib"
                                                                                                                                         }, 
                                                                                                                                         {
                                                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -6326,7 +6334,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [5 new files] core-util-is"
+                                                                                                                                    "text": "core-util-is"
                                                                                                                                 }, 
                                                                                                                                 {
                                                                                                                                     "children": [
@@ -6373,7 +6381,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [4 new files] debuglog"
+                                                                                                                                    "text": "debuglog"
                                                                                                                                 }
                                                                                                                             ], 
                                                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -6382,7 +6390,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [9 new files] node_modules"
+                                                                                                                            "text": "node_modules"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -6449,7 +6457,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [1 new file] fixtures"
+                                                                                                                                    "text": "fixtures"
                                                                                                                                 }, 
                                                                                                                                 {
                                                                                                                                     "children": [
@@ -6775,7 +6783,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [35 new files] simple"
+                                                                                                                                    "text": "simple"
                                                                                                                                 }
                                                                                                                             ], 
                                                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -6784,7 +6792,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [37 new files] test"
+                                                                                                                            "text": "test"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -6820,7 +6828,7 @@
                                                                                                                         "opened": true, 
                                                                                                                         "selected": false
                                                                                                                     }, 
-                                                                                                                    "text": "[0 new files] [0 new files] [65 new files] readable-stream"
+                                                                                                                    "text": "readable-stream"
                                                                                                                 }, 
                                                                                                                 {
                                                                                                                     "children": [
@@ -6887,7 +6895,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [2 new files] test"
+                                                                                                                            "text": "test"
                                                                                                                         }
                                                                                                                     ], 
                                                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -6896,7 +6904,7 @@
                                                                                                                         "opened": true, 
                                                                                                                         "selected": false
                                                                                                                     }, 
-                                                                                                                    "text": "[0 new files] [0 new files] [6 new files] stream-counter"
+                                                                                                                    "text": "stream-counter"
                                                                                                                 }
                                                                                                             ], 
                                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -6905,7 +6913,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [71 new files] node_modules"
+                                                                                                            "text": "node_modules"
                                                                                                         }, 
                                                                                                         {
                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -7001,7 +7009,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [6 new files] file"
+                                                                                                                            "text": "file"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "children": [
@@ -7068,7 +7076,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [6 new files] encoding"
+                                                                                                                                    "text": "encoding"
                                                                                                                                 }, 
                                                                                                                                 {
                                                                                                                                     "children": [
@@ -7097,7 +7105,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [2 new files] no-filename"
+                                                                                                                                    "text": "no-filename"
                                                                                                                                 }, 
                                                                                                                                 {
                                                                                                                                     "children": [
@@ -7126,7 +7134,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [2 new files] preamble"
+                                                                                                                                    "text": "preamble"
                                                                                                                                 }, 
                                                                                                                                 {
                                                                                                                                     "children": [
@@ -7209,7 +7217,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [8 new files] special-chars-in-filename"
+                                                                                                                                    "text": "special-chars-in-filename"
                                                                                                                                 }, 
                                                                                                                                 {
                                                                                                                                     "children": [
@@ -7238,7 +7246,7 @@
                                                                                                                                         "opened": true, 
                                                                                                                                         "selected": false
                                                                                                                                     }, 
-                                                                                                                                    "text": "[0 new files] [0 new files] [2 new files] workarounds"
+                                                                                                                                    "text": "workarounds"
                                                                                                                                 }
                                                                                                                             ], 
                                                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -7247,7 +7255,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [20 new files] http"
+                                                                                                                            "text": "http"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "children": [
@@ -7303,7 +7311,7 @@
                                                                                                                                 "opened": true, 
                                                                                                                                 "selected": false
                                                                                                                             }, 
-                                                                                                                            "text": "[0 new files] [0 new files] [5 new files] js"
+                                                                                                                            "text": "js"
                                                                                                                         }, 
                                                                                                                         {
                                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -7330,7 +7338,7 @@
                                                                                                                         "opened": true, 
                                                                                                                         "selected": false
                                                                                                                     }, 
-                                                                                                                    "text": "[0 new files] [0 new files] [33 new files] fixture"
+                                                                                                                    "text": "fixture"
                                                                                                                 }, 
                                                                                                                 {
                                                                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -7431,7 +7439,7 @@
                                                                                                                         "opened": true, 
                                                                                                                         "selected": false
                                                                                                                     }, 
-                                                                                                                    "text": "[0 new files] [0 new files] [9 new files] standalone"
+                                                                                                                    "text": "standalone"
                                                                                                                 }, 
                                                                                                                 {
                                                                                                                     "icon": "glyphicon glyphicon-file color_green", 
@@ -7449,7 +7457,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [45 new files] test"
+                                                                                                            "text": "test"
                                                                                                         }
                                                                                                     ], 
                                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -7458,7 +7466,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [127 new files] multiparty"
+                                                                                                    "text": "multiparty"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -7507,7 +7515,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [4 new files] examples"
+                                                                                                            "text": "examples"
                                                                                                         }, 
                                                                                                         {
                                                                                                             "children": [
@@ -7563,7 +7571,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [5 new files] lib"
+                                                                                                            "text": "lib"
                                                                                                         }, 
                                                                                                         {
                                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -7637,7 +7645,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [4 new files] test"
+                                                                                                            "text": "test"
                                                                                                         }
                                                                                                     ], 
                                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -7646,7 +7654,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [16 new files] negotiator"
+                                                                                                    "text": "negotiator"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -7711,7 +7719,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [6 new files] pause"
+                                                                                                    "text": "pause"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -7767,7 +7775,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [5 new files] qs"
+                                                                                                    "text": "qs"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -7832,7 +7840,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [6 new files] raw-body"
+                                                                                                    "text": "raw-body"
                                                                                                 }, 
                                                                                                 {
                                                                                                     "children": [
@@ -7870,7 +7878,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [3 new files] uid2"
+                                                                                                    "text": "uid2"
                                                                                                 }
                                                                                             ], 
                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -7879,7 +7887,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [177 new files] node_modules"
+                                                                                            "text": "node_modules"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -7906,7 +7914,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [299 new files] connect"
+                                                                                    "text": "connect"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8000,7 +8008,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [3 new files] test"
+                                                                                            "text": "test"
                                                                                         }
                                                                                     ], 
                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -8009,7 +8017,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [9 new files] cookie"
+                                                                                    "text": "cookie"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8074,7 +8082,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [6 new files] cookie-signature"
+                                                                                    "text": "cookie-signature"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8114,7 +8122,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [1 new file] lib"
+                                                                                            "text": "lib"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -8141,7 +8149,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [5 new files] debug"
+                                                                                    "text": "debug"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8206,7 +8214,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [6 new files] fresh"
+                                                                                    "text": "fresh"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8262,7 +8270,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [5 new files] merge-descriptors"
+                                                                                    "text": "merge-descriptors"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8309,7 +8317,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [4 new files] methods"
+                                                                                    "text": "methods"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8349,7 +8357,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [1 new file] examples"
+                                                                                            "text": "examples"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -8513,7 +8521,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [13 new files] test"
+                                                                                            "text": "test"
                                                                                         }
                                                                                     ], 
                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -8522,7 +8530,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [20 new files] mkdirp"
+                                                                                    "text": "mkdirp"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8587,7 +8595,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [6 new files] range-parser"
+                                                                                    "text": "range-parser"
                                                                                 }, 
                                                                                 {
                                                                                     "children": [
@@ -8645,7 +8653,7 @@
                                                                                                 "opened": true, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [2 new files] lib"
+                                                                                            "text": "lib"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -8732,7 +8740,7 @@
                                                                                                                 "opened": true, 
                                                                                                                 "selected": false
                                                                                                             }, 
-                                                                                                            "text": "[0 new files] [0 new files] [2 new files] types"
+                                                                                                            "text": "types"
                                                                                                         }
                                                                                                     ], 
                                                                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -8741,7 +8749,7 @@
                                                                                                         "opened": true, 
                                                                                                         "selected": false
                                                                                                     }, 
-                                                                                                    "text": "[0 new files] [0 new files] [7 new files] mime"
+                                                                                                    "text": "mime"
                                                                                                 }
                                                                                             ], 
                                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -8750,7 +8758,7 @@
                                                                                                 "opened": false, 
                                                                                                 "selected": false
                                                                                             }, 
-                                                                                            "text": "[0 new files] [0 new files] [7 new files] node_modules"
+                                                                                            "text": "node_modules"
                                                                                         }, 
                                                                                         {
                                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -8777,7 +8785,7 @@
                                                                                         "opened": true, 
                                                                                         "selected": false
                                                                                     }, 
-                                                                                    "text": "[0 new files] [0 new files] [15 new files] send"
+                                                                                    "text": "send"
                                                                                 }
                                                                             ], 
                                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -8786,7 +8794,7 @@
                                                                                 "opened": true, 
                                                                                 "selected": false
                                                                             }, 
-                                                                            "text": "[0 new files] [0 new files] [389 new files] node_modules"
+                                                                            "text": "node_modules"
                                                                         }, 
                                                                         {
                                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -8813,7 +8821,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [407 new files] express"
+                                                                    "text": "express"
                                                                 }
                                                             ], 
                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -8822,7 +8830,7 @@
                                                                 "opened": false, 
                                                                 "selected": false
                                                             }, 
-                                                            "text": "[0 new files] [0 new files] [408 new files] node_modules"
+                                                            "text": "node_modules"
                                                         }, 
                                                         {
                                                             "icon": "glyphicon glyphicon-file color_green", 
@@ -8869,7 +8877,7 @@
                                                                 "opened": true, 
                                                                 "selected": false
                                                             }, 
-                                                            "text": "[0 new files] [0 new files] [1 new file] static"
+                                                            "text": "static"
                                                         }
                                                     ], 
                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -8878,7 +8886,7 @@
                                                         "opened": true, 
                                                         "selected": false
                                                     }, 
-                                                    "text": "[0 new files] [0 new files] [437 new files] lab1"
+                                                    "text": "lab1"
                                                 }
                                             ], 
                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -8887,7 +8895,7 @@
                                                 "opened": true, 
                                                 "selected": false
                                             }, 
-                                            "text": "[0 new files] [0 new files] [437 new files] torta-test"
+                                            "text": "torta-test"
                                         }
                                     ], 
                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -8896,7 +8904,7 @@
                                         "opened": true, 
                                         "selected": false
                                     }, 
-                                    "text": "[0 new files] [0 new files] [437 new files] alokmysore"
+                                    "text": "alokmysore"
                                 }
                             ], 
                             "icon": "glyphicon glyphicon-folder-open", 
@@ -8905,7 +8913,7 @@
                                 "opened": true, 
                                 "selected": false
                             }, 
-                            "text": "[0 new files] [0 new files] [437 new files] Users"
+                            "text": "Users"
                         }
                     ], 
                     "icon": "glyphicon glyphicon-folder-open", 
@@ -8914,36 +8922,44 @@
                         "opened": true, 
                         "selected": false
                     }, 
-                    "text": "[0 new files] [0 new files] [437 new files] /"
+                    "text": "/"
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "summary": "", 
                 "timestamp": 1484296639, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "summary": "", 
                 "timestamp": 1484296643, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "cd lab1/", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "summary": "", 
                 "timestamp": 1484296645, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "summary": "", 
                 "timestamp": 1484296645, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
@@ -8986,7 +9002,7 @@
                                                         "opened": true, 
                                                         "selected": false
                                                     }, 
-                                                    "text": "[0 new files] [0 new files] [1 new file] lab1"
+                                                    "text": "lab1"
                                                 }
                                             ], 
                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -8995,7 +9011,7 @@
                                                 "opened": true, 
                                                 "selected": false
                                             }, 
-                                            "text": "[0 new files] [0 new files] [1 new file] torta-test"
+                                            "text": "torta-test"
                                         }
                                     ], 
                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9004,7 +9020,7 @@
                                         "opened": true, 
                                         "selected": false
                                     }, 
-                                    "text": "[0 new files] [0 new files] [1 new file] alokmysore"
+                                    "text": "alokmysore"
                                 }
                             ], 
                             "icon": "glyphicon glyphicon-folder-open", 
@@ -9013,7 +9029,7 @@
                                 "opened": true, 
                                 "selected": false
                             }, 
-                            "text": "[0 new files] [0 new files] [1 new file] Users"
+                            "text": "Users"
                         }
                     ], 
                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9022,12 +9038,14 @@
                         "opened": true, 
                         "selected": false
                     }, 
-                    "text": "[0 new files] [0 new files] [1 new file] /"
+                    "text": "/"
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "summary": "", 
                 "timestamp": 1484296660, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
@@ -9069,7 +9087,7 @@
                                                         "opened": true, 
                                                         "selected": false
                                                     }, 
-                                                    "text": "[0 new files] [0 new files] [1 new file] lab1"
+                                                    "text": "lab1"
                                                 }
                                             ], 
                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -9078,7 +9096,7 @@
                                                 "opened": true, 
                                                 "selected": false
                                             }, 
-                                            "text": "[0 new files] [0 new files] [1 new file] torta-test"
+                                            "text": "torta-test"
                                         }
                                     ], 
                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9087,7 +9105,7 @@
                                         "opened": true, 
                                         "selected": false
                                     }, 
-                                    "text": "[0 new files] [0 new files] [1 new file] alokmysore"
+                                    "text": "alokmysore"
                                 }
                             ], 
                             "icon": "glyphicon glyphicon-folder-open", 
@@ -9096,7 +9114,7 @@
                                 "opened": true, 
                                 "selected": false
                             }, 
-                            "text": "[0 new files] [0 new files] [1 new file] Users"
+                            "text": "Users"
                         }
                     ], 
                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9105,28 +9123,34 @@
                         "opened": true, 
                         "selected": false
                     }, 
-                    "text": "[0 new files] [0 new files] [1 new file] /"
+                    "text": "/"
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "summary": "", 
                 "timestamp": 1484296676, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "summary": "", 
                 "timestamp": 1484296677, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "summary": "", 
                 "timestamp": 1484296685, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
@@ -9190,7 +9214,7 @@
                                                                         "opened": true, 
                                                                         "selected": false
                                                                     }, 
-                                                                    "text": "[0 new files] [0 new files] [2 new files] Cache"
+                                                                    "text": "Cache"
                                                                 }
                                                             ], 
                                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -9199,7 +9223,7 @@
                                                                 "opened": true, 
                                                                 "selected": false
                                                             }, 
-                                                            "text": "[0 new files] [0 new files] [2 new files] Sublime Text 3"
+                                                            "text": "Sublime Text 3"
                                                         }
                                                     ], 
                                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9208,7 +9232,7 @@
                                                         "opened": true, 
                                                         "selected": false
                                                     }, 
-                                                    "text": "[0 new files] [0 new files] [2 new files] Application Support"
+                                                    "text": "Application Support"
                                                 }
                                             ], 
                                             "icon": "glyphicon glyphicon-folder-open", 
@@ -9217,7 +9241,7 @@
                                                 "opened": true, 
                                                 "selected": false
                                             }, 
-                                            "text": "[0 new files] [0 new files] [2 new files] Library"
+                                            "text": "Library"
                                         }
                                     ], 
                                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9226,7 +9250,7 @@
                                         "opened": true, 
                                         "selected": false
                                     }, 
-                                    "text": "[0 new files] [0 new files] [2 new files] alokmysore"
+                                    "text": "alokmysore"
                                 }
                             ], 
                             "icon": "glyphicon glyphicon-folder-open", 
@@ -9235,7 +9259,7 @@
                                 "opened": true, 
                                 "selected": false
                             }, 
-                            "text": "[0 new files] [0 new files] [2 new files] Users"
+                            "text": "Users"
                         }
                     ], 
                     "icon": "glyphicon glyphicon-folder-open", 
@@ -9244,20 +9268,24 @@
                         "opened": true, 
                         "selected": false
                     }, 
-                    "text": "[0 new files] [0 new files] [2 new files] /"
+                    "text": "/"
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "summary": "", 
                 "timestamp": 1484296693, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "bash end.sh", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", 
+                "summary": "", 
                 "timestamp": 1484296721, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }
         ], 
@@ -9271,10 +9299,12 @@
             "y": 25
         }, 
         "screencast": "screen_recording.4.mp4", 
+        "summary": "hello world23", 
         "timestamp": {
             "end": 1484296693, 
             "start": 1484296637
         }, 
+        "visibility": "show", 
         "visible": true
     }, 
     {
@@ -9959,10 +9989,12 @@
             "y": 22
         }, 
         "screencast": "screen_recording.5.mp4", 
+        "summary": "", 
         "timestamp": {
             "end": 1484296697, 
             "start": 1484296694
         }, 
+        "visibility": "collapse", 
         "visible": false
     }, 
     {
@@ -9972,8 +10004,10 @@
                 "cmd": "cd", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", 
+                "summary": "", 
                 "timestamp": 1484296625, 
                 "user": "alok", 
+                "visibility": "show", 
                 "visible": true
             }
         ], 
@@ -9984,10 +10018,12 @@
             "y": 25
         }, 
         "screencast": "screen_recording.4.mp4", 
+        "summary": "", 
         "timestamp": {
             "end": 1484296693, 
             "start": 1484296637
         }, 
+        "visibility": "show", 
         "visible": false
     }
 ]

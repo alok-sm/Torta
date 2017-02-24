@@ -1,8 +1,9 @@
 <div class="form-group">
-    <label for="exampleInputPassword1">Recording ID</label>
+    <label>Recording ID</label>
     <input type="text" class="form-control" ng-model="recordingId">
 </div>
 
-<div class="form-group">
-    <center><button ng-click="goToRecording()" class="btn btn-primary">Submit</button></center>
-</div>
+<center>
+    <button ng-click="goToEditor()" class="btn btn-primary">Edit</button>
+    <button ng-click="goToViewer()" class="btn btn-primary">View</button>
+</center>
