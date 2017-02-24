@@ -13,8 +13,9 @@
     "underscore": "^1.8.3",
     "ng-js-tree": "^0.0.10",
     "bootbox": "^4.4.0",
-    "clipboard": "^1.6.0",
-    "ngclipboard": "^1.1.1"
+    "angularjs-slider": "^6.0.1",
+    "ngclipboard": "^1.1.1",
+    "clipboard": "^1.6.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

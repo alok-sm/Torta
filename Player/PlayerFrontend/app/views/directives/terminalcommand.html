@@ -39,15 +39,26 @@
                     </label>
                 </div>
 
-                <button
-                    ng-if="!editable && command.visibility === 'collapse'"
-                    class="btn btn-success btn-xs pull-right"
-                    ng-click="command.visibility = 'show'">Show</button>
+                <div class="btn-group btn-group-xs pull-right">
+                    <button 
+                        ng-if="!editable"
+                        class="btn btn-default" 
+                        title="Copy to Clipboard" 
+                        ngclipboard 
+                        data-clipboard-text="{{command.cmd}}">
+                        <span class="glyphicon glyphicon-copy"></span>
+                    </button>
 
-                <button 
-                    ng-if="!editable && command.visibility === 'show'"
-                    class="btn btn-warning btn-xs pull-right"
-                    ng-click="command.visibility = 'collapse'">Collapse</button>
+                    <button
+                        ng-if="!editable && command.visibility === 'collapse'"
+                        class="btn btn-success"
+                        ng-click="command.visibility = 'show'">Show</button>
+
+                    <button 
+                        ng-if="!editable && command.visibility === 'show'"
+                        class="btn btn-warning"
+                        ng-click="command.visibility = 'collapse'">Collapse</button>
+                </div>
 
             </div>
         </div>
@@ -55,8 +66,7 @@
             <div class="row row-eq-height">
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <center>
-                        <video class="window-clip" controls ng-src="{{fileServerUrl + recordingId + '/' + window.screencast}}">
-                        </video>
+                        <screencast screencast="command.screencast"></screencast>
                     </center>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">

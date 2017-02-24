@@ -6,6 +6,10 @@
                 "cmd": "cd", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296625, 
                 "user": "alok", 
@@ -16,16 +20,24 @@
                 "cmd": "mkdir torta-test", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296630, 
                 "user": "alok", 
-                "visibility": "hide", 
+                "visibility": "show", 
                 "visible": true
             }, 
             {
                 "cmd": "cd torta-test/", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296632, 
                 "user": "alok", 
@@ -36,6 +48,10 @@
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296632, 
                 "user": "alok", 
@@ -8926,6 +8942,10 @@
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296639, 
                 "user": "alok", 
@@ -8936,6 +8956,10 @@
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "screencast": {
+                    "playbackrate": 1.5, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296643, 
                 "user": "alok", 
@@ -8946,6 +8970,10 @@
                 "cmd": "cd lab1/", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296645, 
                 "user": "alok", 
@@ -8956,6 +8984,10 @@
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296645, 
                 "user": "alok", 
@@ -9042,6 +9074,10 @@
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296660, 
                 "user": "alok", 
@@ -9127,6 +9163,10 @@
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296676, 
                 "user": "alok", 
@@ -9137,6 +9177,10 @@
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296677, 
                 "user": "alok", 
@@ -9147,6 +9191,10 @@
                 "cmd": "ls", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296685, 
                 "user": "alok", 
@@ -9272,6 +9320,10 @@
                 }, 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/torta-test/lab1", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296693, 
                 "user": "alok", 
@@ -9282,6 +9334,10 @@
                 "cmd": "bash end.sh", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296721, 
                 "user": "alok", 
@@ -9298,7 +9354,10 @@
             "x": 2, 
             "y": 25
         }, 
-        "screencast": "screen_recording.4.mp4", 
+        "screencast": {
+            "playbackrate": 1, 
+            "src": "screen_recording.4.mp4"
+        }, 
         "summary": "hello world23", 
         "timestamp": {
             "end": 1484296693, 
@@ -9988,13 +10047,16 @@
             "x": 560, 
             "y": 22
         }, 
-        "screencast": "screen_recording.5.mp4", 
+        "screencast": {
+            "playbackrate": 1, 
+            "src": "screen_recording.5.mp4"
+        }, 
         "summary": "", 
         "timestamp": {
             "end": 1484296697, 
             "start": 1484296694
         }, 
-        "visibility": "collapse", 
+        "visibility": "show", 
         "visible": false
     }, 
     {
@@ -10004,6 +10066,10 @@
                 "cmd": "cd", 
                 "host": "mbp.local", 
                 "pwd": "/Users/alokmysore/dev/HciResearch/Torta/Tracer", 
+                "screencast": {
+                    "playbackrate": 1, 
+                    "src": "screen_recording.4.mp4"
+                }, 
                 "summary": "", 
                 "timestamp": 1484296625, 
                 "user": "alok", 
@@ -10017,7 +10083,10 @@
             "x": 2, 
             "y": 25
         }, 
-        "screencast": "screen_recording.4.mp4", 
+        "screencast": {
+            "playbackrate": 1, 
+            "src": "screen_recording.4.mp4"
+        }, 
         "summary": "", 
         "timestamp": {
             "end": 1484296693, 

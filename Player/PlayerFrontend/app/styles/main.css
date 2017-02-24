@@ -5,6 +5,43 @@
     padding: 0.2em 0;
 }
 
+.rzslider{
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.rzslider .rz-pointer{
+    background-color: #999;
+}
+
+.rzslider .rz-bubble{
+    display: none;
+}
+
+.rzslider .rz-tick-legend{
+    font-weight: bold;
+}
+
+.white-box{
+    width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #F9F9F9;
+    margin-top: -10px;
+}
+
+.rzslider .rz-pointer.rz-active:after {
+    background-color: #777;
+}
+
+.rzslider .rz-tick{
+    background: #777;
+}
+
+.rzslider .rz-bar{
+    background: #ccc;
+}
+
 .navbar-brand{
     cursor:pointer;
 }
@@ -55,6 +92,7 @@
 }
 
 .window-header{
+    border-radius: 5px;
     padding: 10px 30px 10px 30px;
     background: white;
     font-size: 25px;
@@ -99,6 +137,32 @@
 
 a[ng-click]{
     cursor: pointer;
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+h4 {
+    margin-top: 25px;
+}
+.row {
+}
+.row .row {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+[class*="col-"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 @media screen and (min-width: 768px) {
