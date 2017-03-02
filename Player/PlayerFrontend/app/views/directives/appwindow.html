@@ -26,14 +26,19 @@
             </label>
         </div>
 
+        <button 
+            ng-if="!editable"
+            class="header-btn btn btn-primary btn-sm pull-right"
+            ng-click="validate()">Validate</button>
+
         <button
             ng-if="!editable && window.visibility === 'collapse'"
-            class="btn btn-success btn-sm pull-right"
+            class="header-btn btn btn-success btn-sm pull-right"
             ng-click="window.visibility = 'show'">Show</button>
 
         <button 
             ng-if="!editable && window.visibility === 'show'"
-            class="btn btn-warning btn-sm pull-right"
+            class="header-btn btn btn-warning btn-sm pull-right"
             ng-click="window.visibility = 'collapse'">Collapse</button>
 
     </div>
@@ -55,8 +60,24 @@
             </div>
         </div>
 
+        <div class="command-box" ng-if="editable">
+            <div class="container-fluid command-container">
+                <div class="row">
+                    <div class="command-header">
+                        <strong>Validation Script</strong>
+                    </div>
+                </div>
+                <div class="validation-script row">
+                    <textarea 
+                        class="monospace-input form-control full-textarea"
+                        ng-model="window.validationScript"
+                        rows="10"></textarea>        
+                </div>
+            </div>
+        </div>
+
         <div ng-if="window.commands && window.commands.length > 0">
-            <h4 >Commands</h4>
+            <h4>Commands</h4>
             <div ng-repeat="command in window.commands">
                 <terminal-command
                     editable="{{editable}}" 

@@ -36,6 +36,7 @@ module.exports = function(config) {
       'bower_components/angularjs-slider/dist/rzslider.js',
       'bower_components/clipboard/dist/clipboard.js',
       'bower_components/ngclipboard/dist/ngclipboard.js',
+      'bower_components/ngstorage/ngStorage.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

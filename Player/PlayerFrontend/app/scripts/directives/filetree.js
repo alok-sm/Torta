@@ -1,61 +1,133 @@
 'use strict';
 
-//TODO: file statuses
-function preProcessFileTree(node){
-    if(!node || !node.children){
-        return 0;
-    }
-    if(node.children.length === 0){
-        node.icon = 'glyphicon glyphicon-file color_green';
-        delete node.children;
-        return 1;
-    }else{
-        node.icon = 'glyphicon glyphicon-folder-open';
-        var sum = 0;
-        for (var i = 0; i < node.children.length; i++) {
-            sum += preProcessFileTree(node.children[i]);
-        }
-        if(sum === 1){
-            node.text = '[' + sum + ' new file] ' + node.text;
-        }else{
-            node.text = '[' + sum + ' new files] ' + node.text;    
-        }
-        return sum;
-    }
-}
-
 angular.module('ngPlayerApp')
-    .directive('fileTree', function () {
+    .directive('fileTree', function ($log, fileapi, helpers) {
         return {
             restrict: 'E',
             templateUrl: 'views/directives/filetree.html',
             scope: {
-                tree: '='
+                files: '=',
+                collapsedDirectories: '='
             },
             link: function postLink($scope, element, attributes) {
                 $scope.editable = attributes.editable === 'true';
-                
-                if(!$scope.editable){
-                    preProcessFileTree($scope.tree);    
+
+                function renderTree(reRender){
+                    fileapi.treeify($scope.files, $scope.collapsedDirectories, $scope.editable)
+                        .then(function(tree){
+                            $scope.tree = tree;
+                            if(reRender){
+                                $scope.treeConfig.version ++;
+                            }
+                        });
                 }
+
+                function contextMenu(node){
+                    // Don't show options for viewer
+                    if(!$scope.editable){
+                        return {};
+                    }
+
+                    return {
+                        enableItem: {
+                            label: 'Enable',
+                            action: function () {
+                                for (var i = 0; i < $scope.files.length; i++) {
+                                    if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
+                                        $scope.files[i].disabled = false;
+                                    }
+                                }
+                                renderTree(true);
+                            }
+                        },
+                        disableItem: {
+                            label: 'Disable',
+                            action: function () {
+                                for (var i = 0; i < $scope.files.length; i++) {
+                                    if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
+                                        $scope.files[i].disabled = true;
+                                    }
+                                 } 
+                                 renderTree(true);
+                            }
+                        },
+                        validate: {
+                            label: 'Validate',
+                            action: function(){
+                                for (var i = 0; i < $scope.files.length; i++) {
+                                    if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
+                                        $scope.files[i].validate = true;
+                                        $scope.files[i].validateExact = false;
+                                    }
+                                } 
+                                renderTree(true);
+                            }
+                        },
+                        validateExact: {
+                            label: 'Validate Exact',
+                            action: function(){
+                                for (var i = 0; i < $scope.files.length; i++) {
+                                    if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
+                                        $scope.files[i].validate = true;
+                                        $scope.files[i].validateExact = true;
+                                    }
+                                } 
+                                renderTree(true);
+                            }
+                        },
+                        validateNone: {
+                            label: 'Don\'t validate',
+                            action: function(){
+                                for (var i = 0; i < $scope.files.length; i++) {
+                                    if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
+                                        $scope.files[i].validate = false;
+                                        $scope.files[i].validateExact = false;
+                                    }
+                                }
+                                renderTree(true);
+                            }
+                        }
+                    };
+                }
+
+                $scope.onNodeClose = function(tree, event){
+                    // Don't call API in viewer
+                    if(!$scope.editable){
+                        return;
+                    }
+
+                    var path = event.node.data.fullpath;
+                    var index = $scope.collapsedDirectories.indexOf(path);
+
+                    if(index < 0){
+                        $scope.collapsedDirectories.push(path);
+                    }
+                };
+
+                $scope.onNodeOpen = function(tree, event){
+                    // Don't call API in viewer
+                    if(!$scope.editable){
+                        return;
+                    }
+
+                    var path = event.node.data.fullpath;
+                    var index = $scope.collapsedDirectories.indexOf(path);
+
+                    if(index >= 0){
+                        $scope.collapsedDirectories.splice(index, 1);
+                    }
+                };
+
+                renderTree(false);
 
                 $scope.treeConfig = { 
                     'plugins' : [
                         'contextmenu'
                     ], 
                     'contextmenu': {
-                        'items': function(node){
-                            var disabled = node.state.disabled;
-                            var label = disabled? 'Show': 'Hide';
-                            return {
-                                deleteItem: {
-                                    label: label,
-                                    action: function () {
-                                    }
-                                }
-                            };
-                        }
-                    }
+                        'items': contextMenu
+                    },
+                    'version': 1
                 };
             }
         };

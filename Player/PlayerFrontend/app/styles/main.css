@@ -5,6 +5,27 @@
     padding: 0.2em 0;
 }
 
+.monospace-input{
+    font-family: monospace;
+}
+
+.jstree-default .jstree-disabled{
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+
+.color_green {
+    color: green;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color: blue;
+}
+
 .rzslider{
     margin-bottom: 40px;
     margin-top: 0px;
@@ -38,6 +59,10 @@
     background: #777;
 }
 
+.header-btn{
+    margin-right: 5px;
+}
+
 .rzslider .rz-bar{
     background: #ccc;
 }
@@ -50,15 +75,19 @@
     color: #888
 }
 
-.color_green {
-    color: green;
-}
-
 .command-box{
     background: #ddd;
     border: #000;
     border-radius: 5px;
     margin-bottom: 30px;
+}
+
+.validation-script textarea{
+    margin: 2%;
+    width: 96%;
+    max-width: 96%;
+    min-width: 96%;
+    font-weight: normal;
 }
 
 .fstree-header{

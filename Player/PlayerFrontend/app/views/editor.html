@@ -21,6 +21,22 @@
     </div>
 </nav>
 
-<div ng-repeat="appWindow in windows">
+<div class="window-parent">
+    <div class="window-header">
+        <span>Eventlog Metadata</span>
+    </div>
+    <div class="window-container">
+        <div class="container-fluid">
+            <div class="col-xs-3 col-sm-3 col-md-6 col-lg-3">
+                <h5>Project Root</h5>
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-6 col-lg-9">
+                <input type="text" class="form-control monospace-input" ng-model="eventLog.projectroot">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-repeat="appWindow in eventLog.windows">
     <app-window window="appWindow" editable="true"></app-window>
 </div>

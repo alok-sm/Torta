@@ -10,7 +10,8 @@ angular
         'ngTouch',
         'ngJsTree',
         'rzModule',
-        'ngclipboard'
+        'ngclipboard',
+        'ngStorage'
     ])
     .config(function ($routeProvider) {
         $routeProvider

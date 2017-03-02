@@ -2,12 +2,12 @@
 
 angular.module('ngPlayerApp')
     .controller('EditorCtrl', function ($routeParams, $scope, bootbox, fileapi) {   
-        function renderEventLog(windows){
-            $scope.windows = windows;
+        function renderEventLog(eventLog){
+            $scope.eventLog = eventLog;
         }
 
         $scope.saveChanges = function(){
-            fileapi.writeWindows($routeParams.id, $scope.windows).then(function(){
+            fileapi.writeWindows($routeParams.id, $scope.eventLog).then(function(){
                 bootbox.alert('Saved!');
             });
         };

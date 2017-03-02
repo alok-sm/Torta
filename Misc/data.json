@@ -1,0 +1,45 @@
+[
+    {
+        "fd": 15, 
+        "key": "1051678", 
+        "path": "/Users/alokmysore/Library/Application Support/Sublime Text 3/Cache/C++", 
+        "pid": 75794, 
+        "status": "return", 
+        "syscall": "open", 
+        "timestamp": 1484296683
+    }, 
+    {
+        "fd": 24, 
+        "key": "1558211", 
+        "path": "/Users/alokmysore/dev/HciResearch/Torta/Tracer/screen_recorder/source", 
+        "pid": 75794, 
+        "status": "return", 
+        "syscall": "unlink", 
+        "timestamp": 1484296624
+    }, 
+    {
+        "fd": 16, 
+        "key": "49310", 
+        "path": "/Users/alokmysore/Library/Application Support/Sublime Text 3/Cache/Diff", 
+        "pid": 75794, 
+        "status": "return", 
+        "syscall": "rename", 
+        "timestamp": 1484296637
+    }, 
+    {
+        "fd": 0, 
+        "pid": 75794, 
+        "status": "return", 
+        "syscall": "close", 
+        "timestamp": 1484296679
+    }, 
+    {
+        "fd": 22, 
+        "key": "21548", 
+        "path": "/var/folders/hg/4vnqc7310y70_lkmrnyhll6m0000gn/C/mds/mds.lock", 
+        "pid": 75794, 
+        "status": "return", 
+        "syscall": "open", 
+        "timestamp": 1484296691
+    }
+]

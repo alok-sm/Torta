@@ -10,17 +10,33 @@ angular.module('ngPlayerApp')
 
         return {
             readWindows: function(recordingId){
-                return $http
-                    .get(getEventlogApiEndpoint(recordingId))
+                return $http.get(getEventlogApiEndpoint(recordingId))
                     .then(function(response){
                         return response.data;
                     });
             },
             writeWindows: function(recordingId, windows){
-                return $http
-                    .post(getEventlogApiEndpoint(recordingId), windows).then(function(response){
+                return $http.post(getEventlogApiEndpoint(recordingId), windows)
+                    .then(function(response){
                         return response.data;
                     });
+            },
+            treeify: function(files, collapsedDirectories, editable){
+                return $http.post(constants.fileApiUrl + 'treeify', {
+                    files: files,
+                    collapsedDirectories: collapsedDirectories,
+                    editable: editable
+                }).then(function(response){
+                    return response.data;
+                });
+            },
+            runscript: function(home, script){
+                return $http.post(constants.fileApiUrl + 'runscript', {
+                    home: home,
+                    script: script,
+                }).then(function(response){
+                    return response.data;
+                });
             }
         };
     });

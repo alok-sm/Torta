@@ -3,54 +3,62 @@ import os
 import json
 
 
-def create_node(name):
-    return {
+def create_node(name, original=None, leaf=False):
+    base = {
+        'leaf': leaf,
         'text': name, 
-        'children': [],
         'state': {
-            'opened': True,
+            'opened': name[0] == '.',
             'disabled': False,
             'selected': False
         }
     }
 
-def add_path(node, path):
-    parts = path.split('/', 1)
-    if len(parts) == 1:
-        name = parts[0]
+    if leaf:
+        base['validate'] = 'none'
 
-        child_with_name = [child for child in node['children'] if child['text'] == name]
-        if not any(child_with_name):
-            child = create_node(parts[0])
-            if name[0] == '.':
-                child['state']['opened'] = False
-            node['children'].append(child)
+        base['syscall'] = {
+            'unlink': 'delete',
+            'rename': 'rename',
+            'open'  : 'write'
+        }[original['syscall']]
 
     else:
-        name, remaining = parts
-        child_with_name = [child for child in node['children'] if child['text'] == name]
-        if not any(child_with_name):
-            child = create_node(name)
-            if name[0] == '.':
-                child['state']['opened'] = False
-            node['children'].append(child)
-        else:
-            child = child_with_name[0]
-        add_path(child, remaining)
+        base['children'] = []
+    
+    return base
 
-def create_root(paths):
-    paths = [path.strip('/') for path in paths]
+def add_path(node, path, original):
+    parts = path.split('/', 1)
+    leaf = len(parts) == 1
+    name = parts[0]
+    child_with_name = [child for child in node['children'] if child['text'] == name]
+    child = None
+
+    if any(child_with_name):
+        if not leaf:
+            child = child_with_name[0]
+    else:
+        child = create_node(name, original, leaf=leaf)
+        node['children'].append(child)
+
+    if not leaf:
+        add_path(child, parts[1], original)
+
+
+def create_root(data):
+    data = [item for item in data if 'path' in item.keys()]
+    for obj in data:
+        obj['path'] = obj['path'].strip('/')
+
     root = create_node('/')
-    for path in paths:
-        add_path(root, path)
+    for obj in data:
+        add_path(root, obj['path'], obj)
     return root
 
 def main():
     data = json.load(open('data.json'))
-    data = [item for item in data if 'path' in item.keys()]
-    paths = [item['path'] for item in data]
-
-    print json.dumps(create_root(paths), indent=2, sort_keys=True)
+    print json.dumps(create_root(data), indent=2, sort_keys=True)
 
 if __name__ == '__main__':
     main()
