@@ -1,0 +1,61 @@
+Tracer:
+    Data recorded: 
+    - Foreground window using Applescript
+    - Commands run on terminal applications using a hook into bash-pre-exec
+    - Screencast and Audio using Quicktime
+    - Audio and video segmented by foreground window and commands run using ffmpeg
+    - File changes:
+        - Continuously monitor processes (and their children) started after the tracer starts
+        - dtrace records all "open", "write", "close", "unlink", "rename" syscalls
+        - Filter out syscalls not made by processes (and children) started after the tracer starts
+        - Copies of files are made (with a random key appended to the filename)
+        - record syscall metadata onto a log with data including
+            - syscall
+            - timestamp
+            - original path
+            - new file name
+    - Keystrokes by tapping into Apple's CGEventCallback
+
+    Postprocessing:
+    - Associate file changes with command/window
+
+Editor:
+    - Remove/Collapse windows [Merge 2 nodes of same window (if middle window is removed)]
+    - Remove/Collapse commands
+    - Remove/Collapse file changes
+    - Change screencast playback speed default
+    - Show diffs of file changes
+    - Add captions for command or window
+    - Add file validations (Validate or Validate Exact)
+    - Add bash script for validation
+    - Intelligent defaults:
+        - Collapse windows by default if:
+            - Less than 5 seconds and
+            - Less than 10 keystrokes and
+            - No file changes under $HOME
+        - Collapse commands if no fs changes made
+
+Viewer:
+    - List all Windows
+    - List all commands in windows if present
+    - Show file changes, screencasts, summaries made in windows and commands
+    - Control playback speed of screencast
+    - Collapse/Expand windows, commands, files changes
+    - Validate command:
+        - Checks if all files that have been marked for validation
+        - Force clobber files marked for validation after prompting user
+        - runs the validation script if present
+    - Validate window:
+        - validate each command in the window (as mentioned above)
+        - Force clobber files marked for validation listed under the window (and not the child commands) after prompting user
+        - run the validation script if present
+
+    - Player: (work still ongoing)
+        - Play command:
+            - run command
+            - validate command
+            - force clobber files marked for validation criteria after prompting user
+        - Play window:
+            - run each command in the window (as mentioned above)
+            - Validate window
+            - Force clobber files marked for validation listed under the window (and not the child commands) after prompting user
