@@ -7,14 +7,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">{{recordingId}} [Viewing]</a>
+            <a class="navbar-brand">{{recordingId}} [Editing]</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a ng-href="#!/">Home</a></li>
-                <li><a ng-href="#!/editor/{{recordingId}}">Edit</a></li>
+                <li><a ng-href="#!/viewer/{{recordingId}}">View</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a ng-click="saveChanges()">Save Changes</a></li>
             </ul>
         </div>
     </div>
@@ -22,7 +23,7 @@
 
 <div class="window-parent">
     <div class="window-header">
-        <span>Your system config</span>
+        <span>Eventlog Metadata</span>
     </div>
     <div class="window-container">
         <div class="container-fluid">
@@ -30,14 +31,12 @@
                 <h5>Project Root</h5>
             </div>
             <div class="col-xs-9 col-sm-9 col-md-6 col-lg-9">
-                <input type="text" class="form-control monospace-input" ng-model="$localStorage[recordingId].home">
+                <input type="text" class="form-control monospace-input" ng-model="eventLog.projectroot">
             </div>
         </div>
     </div>
 </div>
 
 <div ng-repeat="appWindow in eventLog.windows">
-    <app-window 
-        window="appWindow" 
-        editable="false"></app-window>
+    <app-window window="appWindow" editable="true" runnable="false"></app-window>
 </div>

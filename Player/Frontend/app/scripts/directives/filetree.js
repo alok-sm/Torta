@@ -11,6 +11,7 @@ angular.module('ngPlayerApp')
             },
             link: function postLink($scope, element, attributes) {
                 $scope.editable = attributes.editable === 'true';
+                $scope.runnable = attributes.runnable === 'true';
 
                 function renderTree(reRender){
                     fileapi.treeify($scope.files, $scope.collapsedDirectories, $scope.editable)

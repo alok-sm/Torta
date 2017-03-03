@@ -79,18 +79,18 @@ def clean(node, directories_to_be_collapsed, path_so_far, editable):
         node['state']['opened'] = False
 
 def to_be_pruned(node):
-    print json.dumps(node)
+    # print json.dumps(node)
     disabled_leaf = node['data']['leaf'] and node['state']['disabled']
     no_children = not node['data']['leaf'] and node['children'] == []
-    print 'disabled_leaf', disabled_leaf
-    print 'no_children', no_children
+    # print 'disabled_leaf', disabled_leaf
+    # print 'no_children', no_children
 
-    print disabled_leaf or no_children
+    # print disabled_leaf or no_children
 
-    if disabled_leaf:
-        print 'leaf ', node['data']['fullpath']
-    if no_children:
-        print 'empty', node['data']['fullpath']
+    # if disabled_leaf:
+    #     print 'leaf ', node['data']['fullpath']
+    # if no_children:
+    #     print 'empty', node['data']['fullpath']
         # print json.dumps(node)
 
     return disabled_leaf or no_children

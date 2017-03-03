@@ -1,4 +1,5 @@
 import os
+import pwd
 import json
 import random
 import string
@@ -8,10 +9,14 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 from flask_cors import CORS
+
 from fstree import treeify
+from terminal_runner import terminal_run
 
 app = Flask(__name__)
 CORS(app)
+
+
 
 @app.route('/eventlog/<recording_id>', methods=['GET', 'POST'])
 def eventlog(recording_id):
@@ -39,8 +44,8 @@ def create_tree():
     # return jsonify(treeify(data.get('files', None), ['/Users'] ))
     # print data
 
-@app.route('/runscript', methods=['POST'])
-def runscript():
+@app.route('/validate', methods=['POST'])
+def validate():
     data = request.get_json()
     home = data.get('home', '~')
     script = data.get('script', '')
@@ -60,6 +65,17 @@ def runscript():
         'returncode': res_code,
         'stdout': proc.stdout.read(),
         'stderr': proc.stderr.read()
+    })
+
+@app.route('/runcommand', methods=['POST'])
+def runcommand():
+    data = request.get_json()
+    command = data['command']
+    cwd = data['cwd']
+    user = data.get('user', pwd.getpwuid(os.getuid())[0])
+    terminal_run(command, cwd, user)
+    return jsonify({
+        'status': 'success'
     })
 
 

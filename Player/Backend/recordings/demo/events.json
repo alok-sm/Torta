@@ -4647,7 +4647,7 @@
                     "timestamp": 1484296721, 
                     "user": "alok", 
                     "validationScript": "", 
-                    "visibility": "show", 
+                    "visibility": "hide", 
                     "visible": true
                 }
             ], 
@@ -4669,7 +4669,7 @@
                 "end": 1484296693, 
                 "start": 1484296637
             }, 
-            "validationScript": "lx", 
+            "validationScript": "ls", 
             "visibility": "show", 
             "visible": true
         }, 

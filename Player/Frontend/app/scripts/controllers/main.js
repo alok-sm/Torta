@@ -9,4 +9,8 @@ angular.module('ngPlayerApp')
         $scope.goToViewer = function(){
             $location.path('/viewer/' + $scope.recordingId);
         };
+
+        $scope.goToRunner = function(){
+            $location.path('/viewer/' + $scope.recordingId).search({runnable : '1'});
+        };
     });

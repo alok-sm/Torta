@@ -8,6 +8,7 @@ angular.module('ngPlayerApp')
 
         $scope.$localStorage = $localStorage;
         $scope.recordingId = $routeParams.id;
+        $scope.runnable = $routeParams.runnable === '1';
 
         if(!$localStorage[$scope.recordingId]){
             $localStorage[$scope.recordingId] = {

@@ -61,8 +61,13 @@
 
                     <button 
                         ng-if="!editable"
-                        class="btn btn-primary"
+                        class="btn btn-info"
                         ng-click="validate()">Validate</button>
+
+                    <button 
+                        ng-if="!editable"
+                        class="btn btn-primary"
+                        ng-click="run()">Run</button>
                 </div>
 
             </div>
@@ -93,6 +98,7 @@
 
             <file-tree 
                 editable="{{editable}}" 
+                runnable="{{runnable}}"
                 collapsed-directories="command.collapsedDirectories" 
                 files="command.files"></file-tree>
         </div>

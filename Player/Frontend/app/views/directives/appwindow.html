@@ -26,9 +26,14 @@
             </label>
         </div>
 
-        <button 
-            ng-if="!editable"
+        <button
+            ng-if="!editable && runnable"
             class="header-btn btn btn-primary btn-sm pull-right"
+            ng-click="run()">Run</button>
+
+        <button 
+            ng-if="!editable && runnable"
+            class="header-btn btn btn-info btn-sm pull-right"
             ng-click="validate()">Validate</button>
 
         <button
@@ -80,7 +85,8 @@
             <h4>Commands</h4>
             <div ng-repeat="command in window.commands">
                 <terminal-command
-                    editable="{{editable}}" 
+                    editable="{{editable}}"
+                    runnable="{{runnable}}"
                     command="command"></terminal-command>
             </div>
         </div>
