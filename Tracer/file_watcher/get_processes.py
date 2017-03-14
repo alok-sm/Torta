@@ -1,6 +1,8 @@
-import subprocess
 import psutil
 import json
+import time
+from misc import run_cmd
+from threading import Thread
 
 osascript_cmd = '''osascript -e 'tell application "System Events" 
     repeat with proc in (processes where background only is false)
@@ -9,94 +11,63 @@ osascript_cmd = '''osascript -e 'tell application "System Events"
     end repeat
 end tell' 2>&1'''
 
-
-class Application:
-    def __init__(self, name, process_trees=None):
-        self.name = name
-        self.process_trees = [] if process_trees == None else process_trees
-
-    def __str__(self):
-        return json.dumps({
-            "name": self.name,
-            "process_trees": [json.loads(str(proc)) for proc in self.process_trees]
-        })
-
-
-class ProcessTree:
-    def __init__(self, pid, children=None):
-        self.pid = pid
-        self.children = [] if children == None else children
-
-    def get_subtree(self, pid):
-        if self.pid == pid:
-            return self
-        for child in self.children:
-            subtree = child.get_subtree
-            if subtree is not None:
-                return subtree
-        return None
-
-    def __contains__(self, pid):
-        if self.pid == pid:
-            return True
-        return any([child.__contains__(pid) for child in self.children])
-
-    def __str__(self):
-        return json.dumps({
-            "pid": self.pid,
-            "children": [json.loads(str(child)) for child in self.children]
-        })
-
 def get_psutil_proc(pid):
     try:
         return psutil.Process(pid)
     except Exception as e:
         return None
 
-def run_cmd(cmd):
-    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-    return [line.strip() for line in proc.communicate()[0].split('\n')[:-1]]
-
-def create_process_tree(psutil_proc):
-    children = []
-    for child_pid in psutil_proc.children():
-        child_psutil_proc = get_psutil_proc(child_pid)
-        if child_psutil_proc == None:
-            continue
-        children.append(create_process_tree(child_psutil_proc))
-    return ProcessTree(psutil_proc.pid, children)
-
-def get_application_from_name(app_name):
+def get_pids_by_app_name(app_name):
     cmd = "ps -A | grep '{}' | awk '{{print $1}}'".format(app_name)
-    pids = sorted(map(int, run_cmd(cmd)))[: -2]
-    process_trees = []
+    all_pids = set()
+    base_pids = sorted(map(int, run_cmd(cmd)))[: -2]
+    for pid in base_pids:
+        if pid not in all_pids:
+            psutil_proc = get_psutil_proc(pid)
+            if psutil_proc is None:
+                continue
+            all_pids.add(pid)
+            all_pids.update([proc.pid for proc in psutil_proc.children(recursive=True)])
 
-    for pid in pids:
-        psutil_proc = get_psutil_proc(pid)
-        
-        if psutil_proc == None:
-            continue
+    return all_pids
 
-        if all(pid not in process_tree for process_tree in process_trees):
-            process_trees.append(create_process_tree(psutil_proc))
-    # print app_name, pids
-    return Application(app_name, process_trees), pids
+def get_processes():
+    apps = {app_name: set() for app_name in run_cmd(osascript_cmd)}
+    for proc in psutil.process_iter():
+        matched_keys = [key for key in apps.keys() if key.lower() in proc.name().lower()]
+        if any(matched_keys):
+            key = matched_keys[0]
+            if proc.pid not in apps[matched_keys[0]]:
+                apps[key].add(proc.pid)
+                apps[key].update([child.pid for child in proc.children(recursive=True)])
 
+    processes = {}
 
-def get_applications():
-    app_names = set(run_cmd(osascript_cmd))
-    applications_and_processes = [get_application_from_name(app_name) for app_name in app_names]
-    applications = []
-    watched_process = []
-    for app in applications_and_processes:
-        applications.append(app[0])
-        watched_process.extend(app[1])
-    return applications, watched_process
+    for app, pids in apps.iteritems():
+        for pid in pids:
+            processes[pid] = app
+    
+    return processes
 
+class ProcessItr:
+    def processes_update_daemon_function(self):
+        while True:
+            self.processes = get_processes()
+            time.sleep(0.5)
 
+    def __init__(self):
+        self.processes = get_processes()
+        self.processes_update_daemon = Thread(target=self.processes_update_daemon_function)
+        self.processes_update_daemon.start()
+
+    def __iter__(self):
+        return self
+
+    def next(self):
+        return self.processes
 
 if __name__ == '__main__':
-    apps, procs = get_applications()
-    print json.dumps([json.loads(str(app)) for app in apps], sort_keys=True, indent=4)
-
-    # print json.dumps(procs, sort_keys=True, indent=4)
+    process_iter = ProcessItr()
+    for processes in process_iter:
+        print processes
+        time.sleep(0.1)

@@ -1,12 +1,12 @@
-#!/bin/sh
-/usr/sbin/dtrace -w -n '
+#!/usr/sbin/dtrace -s
+
 #pragma D option quiet
 #pragma D option switchrate=100hz
 
 syscall::open*:entry
 {
-	self->key = rand();
-	self->path = cleanpath(copyinstr(arg0));
+	self -> key = rand();
+	self -> path = cleanpath(copyinstr(arg0));
 	printf("{\"timestamp\": %d, \"syscall\": \"open\",   \"status\": \"entry\",  \"key\": \"%d\", \"pid\": %d, \"path\": \"%s\"}\n", walltimestamp/1000000000, self->key, pid, self->path);
 }
 
@@ -39,4 +39,3 @@ syscall::rename*:entry
 	printf("{\"timestamp\": %d, \"syscall\": \"rename\", \"status\": \"entry\",  \"key\": \"%d\", \"pid\": %d, \"old_path\": \"%s\", \"new_path\": \"%s\"}\n", walltimestamp/1000000000, rand(), pid, cleanpath(copyinstr(arg0)), cleanpath(copyinstr(arg1)));
 	//system("bash getcwd.sh %d cwd_log.txt &", pid)
 }
-'

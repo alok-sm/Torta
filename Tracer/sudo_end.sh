@@ -4,6 +4,8 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+
+
 # stop screen recorder
 touch stop_screen_recorder
 
@@ -11,7 +13,8 @@ touch stop_screen_recorder
 touch key_stroke_watcher/stop_key_stroke_watcher
 
 # stop file watcher
-touch file_watcher/stop_file_watcher
+ps -e | grep dtrace | awk '{print $1}' | while read CMD; do sudo kill -9 $CMD; done
+sudo killall python
 
 while [ ! -f ~/Movies/$(cat meta/session.txt).mov ]
 do
