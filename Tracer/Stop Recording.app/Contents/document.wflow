@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>tell application "Terminal"	activate	set shell to do script "cd $TRACER_PATH; ./end.sh; python postprocess.py $(cat meta/session.txt)" in window 1end tell</string>
+					<string>tell application "Terminal"	activate	set shell to do script "cd $TRACER_PATH; ./end.sh; python postprocess.py $(cat meta/session.txt); bash clean.sh proc" in window 1end tell</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -105,7 +105,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>309.000000:496.000000</string>
+				<string>309.000000:316.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>

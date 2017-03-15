@@ -20,18 +20,23 @@
     </div>
 </nav>
 
-<div class="window-parent" ng-if="runnable">
+<div class="window-parent">
     <div class="window-header">
-        <span>Your system config</span>
+        <span>About this Tutorial</span>
     </div>
-    <div class="window-container">
-        <div class="container-fluid">
+    <div class="window-container" >
+        <div class="container-fluid" ng-if="runnable">
             <div class="col-xs-3 col-sm-3 col-md-6 col-lg-3">
                 <h5>Project Root</h5>
             </div>
             <div class="col-xs-9 col-sm-9 col-md-6 col-lg-9">
                 <input type="text" class="form-control monospace-input" ng-model="$localStorage[recordingId].home">
             </div>
+        </div>
+
+        <div class="container-fluid">
+            <h4>Tutorial Introduction</h4>
+            <textarea type="text" class="form-control monospace-input" ng-model="eventLog.introduction" readonly="" rows="10"></textarea>
         </div>
     </div>
 </div>
