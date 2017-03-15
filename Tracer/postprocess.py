@@ -1,6 +1,11 @@
 import sys
 import json
 import os
+import subprocess
+
+def run_cmd(cmd):
+    proc = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    return [line.strip() for line in proc.communicate()[0].split('\n')[:-1]]
 
 session_id = sys.argv[1]
 
@@ -11,7 +16,10 @@ end_time = int(open('raw_data/{}/end_time.txt'.format(session_id)).readline().st
 
 window_positions = [json.loads(line) for line in open('raw_data/{}/window_positions.txt'.format(session_id))]
 
-commands = [json.loads(line) for line in open('raw_data/{}/command_log.txt'.format(session_id))]
+def format_command_line(line):
+	return json.loads(line.replace("\"", "\\\"").replace("####", "\""))
+
+commands = [format_command_line(line) for line in open('raw_data/{}/command_log.txt'.format(session_id))]
 
 grouped_positions = []
 
@@ -66,6 +74,7 @@ json.dump({
 }, open('output/{}/events.json'.format(session_id), 'w'), sort_keys=True, indent=4)
 
 for i, position in enumerate(grouped_positions):
+	print "in loop"
 	cmd = 'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/screen_recording.{i}.mp4 -y'.format(
 		session_id = session_id,
 		start_time = position['timestamp']['start'] - start_time,
@@ -76,5 +85,6 @@ for i, position in enumerate(grouped_positions):
 		y = position['position']['y'],
 		i = i
 	)
-	# print cmd
-	os.system(cmd)
+	print repr(cmd)
+	print run_cmd(cmd) 
+	# os.system(cmd)

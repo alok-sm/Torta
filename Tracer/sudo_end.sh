@@ -1,3 +1,4 @@
+
 # check if user is sudo.
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run with sudo" 1>&2
@@ -12,9 +13,6 @@ touch stop_screen_recorder
 # stop key stroke monitor
 touch key_stroke_watcher/stop_key_stroke_watcher
 
-# stop file watcher
-ps -e | grep dtrace | awk '{print $1}' | while read CMD; do sudo kill -9 $CMD; done
-sudo killall python
 
 while [ ! -f ~/Movies/$(cat meta/session.txt).mov ]
 do
