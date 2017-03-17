@@ -43,5 +43,10 @@
 </div>
 
 <div ng-repeat="appWindow in eventLog.windows">
-    <app-window window="appWindow" editable="true" runnable="false"></app-window>
+    <app-window 
+        global-disabled-path="globalDisabledPath"
+        window="appWindow" 
+        editable="true" 
+        runnable="false" 
+        disable-path-callback="disablePathCallback(path)"></app-window>
 </div>

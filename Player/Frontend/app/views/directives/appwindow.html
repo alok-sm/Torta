@@ -85,6 +85,8 @@
             <h4>Commands</h4>
             <div ng-repeat="command in window.commands">
                 <terminal-command
+                    global-disabled-path="globalDisabledPath"
+                    disable-path-global="disablePathGlobal(path)"
                     editable="{{editable}}"
                     runnable="{{runnable}}"
                     command="command"></terminal-command>
@@ -92,6 +94,8 @@
         </div>
 
         <file-tree 
+                global-disabled-path="globalDisabledPath"
+                disable-path-global="disablePathGlobal(path)"
                 editable="{{editable}}" 
                 runnable="{{runnable}}"
                 collapsed-directories="window.collapsedDirectories" 

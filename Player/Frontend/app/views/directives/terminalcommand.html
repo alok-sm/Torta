@@ -60,12 +60,12 @@
                         ng-click="command.visibility = 'collapse'">Collapse</button>
 
                     <button 
-                        ng-if="!editable"
+                        ng-if="!editable && runnable"
                         class="btn btn-info"
                         ng-click="validate()">Validate</button>
 
                     <button 
-                        ng-if="!editable"
+                        ng-if="!editable && runnable"
                         class="btn btn-primary"
                         ng-click="run()">Run</button>
                 </div>
@@ -97,6 +97,8 @@
             </div>
 
             <file-tree 
+                global-disabled-path="globalDisabledPath"
+                disable-path-global="disablePathGlobalIndireciton(path)"
                 editable="{{editable}}" 
                 runnable="{{runnable}}"
                 collapsed-directories="command.collapsedDirectories" 

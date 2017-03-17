@@ -119,6 +119,8 @@ def get_commands(position):
 
 	for command in filtered_commands:
 		filename = '{}.mp4'.format(rand_str(10))
+		duration = command['screencast']['src'][1] - command['screencast']['src'][0]
+		duration = max(duration, 5)
 		ffmpeg_commands.append(
 			'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/{screencast} -y'.format(
 				session_id = session_id,
@@ -174,6 +176,10 @@ def set_files(positions, k):
 windows = []
 
 for position in grouped_positions:
+	if position['timestamp']['end'] - position['timestamp']['start'] >= 5: 
+		visibility = 'show'
+	else:
+		visibility = 'hide'
 	windows.append({
 		'app': position['app'],
 		'collapsedDirectories': [],
@@ -186,11 +192,11 @@ for position in grouped_positions:
 		'summary': '',
 		'timestamp': position['timestamp'],
 		'validationScript': '',
-		'visibility': 'show'
+		'visibility': visibility
 	})
 
-	for i in xrange(len(windows)):
-		set_files(windows, i)
+for i in xrange(len(windows)):
+	set_files(windows, i)
 
 json.dump({
 	'windows': windows,

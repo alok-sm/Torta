@@ -5,13 +5,15 @@ import json
 syscall_mapping = {
     'unlink': 'delete',
     'rename': 'rename',
-    'open'  : 'write'
+    'open'  : 'write',
+    'close' : 'write'
 }
 
 icon_mapping = {
     'unlink': 'glyphicon glyphicon-file color_red',
     'rename': 'glyphicon glyphicon-file color_blue',
-    'open'  : 'glyphicon glyphicon-file color_green'
+    'open'  : 'glyphicon glyphicon-file color_green',
+    'close' : 'glyphicon glyphicon-file color_green'
 }
 
 def create_node(name, original):

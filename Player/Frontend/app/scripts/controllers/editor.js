@@ -11,6 +11,10 @@ angular.module('ngPlayerApp')
                 bootbox.alert('Saved!');
             });
         };
+
+        $scope.disablePathCallback = function(path){
+            $scope.globalDisabledPath = path;
+        };
         
         $scope.recordingId = $routeParams.id;
         fileapi.readWindows($routeParams.id).then(renderEventLog);

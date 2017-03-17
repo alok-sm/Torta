@@ -1,17 +1,23 @@
 'use strict';
 
 angular.module('ngPlayerApp')
-    .directive('fileTree', function ($log, fileapi, helpers) {
+    .directive('fileTree', function ($log, fileapi, helpers, _) {
         return {
             restrict: 'E',
             templateUrl: 'views/directives/filetree.html',
             scope: {
                 files: '=',
-                collapsedDirectories: '='
+                collapsedDirectories: '=',
+                disablePathGlobal: '&',
+                globalDisabledPath: '='
             },
             link: function postLink($scope, element, attributes) {
                 $scope.editable = attributes.editable === 'true';
                 $scope.runnable = attributes.runnable === 'true';
+                
+                $scope.numFiles = _.filter($scope.files, function(item, index){
+                    return !item.disabled;
+                }).length;
 
                 function renderTree(reRender){
                     fileapi.treeify($scope.files, $scope.collapsedDirectories, $scope.editable)
@@ -23,6 +29,17 @@ angular.module('ngPlayerApp')
                         });
                 }
 
+                $scope.$watch('globalDisabledPath', function(){
+                    if($scope.globalDisabledPath){
+                        for (var i = 0; i < $scope.files.length; i++) {
+                            if(helpers.isParentDirectory($scope.globalDisabledPath, $scope.files[i].path)){
+                                $scope.files[i].disabled = true;
+                            }
+                        } 
+                        renderTree(true);
+                    }
+                });
+
                 function contextMenu(node){
                     // Don't show options for viewer
                     if(!$scope.editable){
@@ -30,7 +47,7 @@ angular.module('ngPlayerApp')
                     }
 
                     return {
-                        enableItem: {
+                        _enableItem: {
                             label: 'Enable',
                             action: function () {
                                 for (var i = 0; i < $scope.files.length; i++) {
@@ -41,18 +58,24 @@ angular.module('ngPlayerApp')
                                 renderTree(true);
                             }
                         },
-                        disableItem: {
+                        _disableItem: {
                             label: 'Disable',
                             action: function () {
                                 for (var i = 0; i < $scope.files.length; i++) {
                                     if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
                                         $scope.files[i].disabled = true;
                                     }
-                                 } 
-                                 renderTree(true);
+                                } 
+                                renderTree(true);
                             }
                         },
-                        validate: {
+                        _disablePathGlobal: {
+                            label: 'Disable Globally',
+                            action: function(){
+                                $scope.disablePathGlobal({path: node.data.fullpath});
+                            }
+                        },
+                        _validate: {
                             label: 'Validate',
                             action: function(){
                                 for (var i = 0; i < $scope.files.length; i++) {
@@ -64,7 +87,7 @@ angular.module('ngPlayerApp')
                                 renderTree(true);
                             }
                         },
-                        validateExact: {
+                        _validateExact: {
                             label: 'Validate Exact',
                             action: function(){
                                 for (var i = 0; i < $scope.files.length; i++) {
@@ -76,7 +99,7 @@ angular.module('ngPlayerApp')
                                 renderTree(true);
                             }
                         },
-                        validateNone: {
+                        _validateNone: {
                             label: 'Don\'t validate',
                             action: function(){
                                 for (var i = 0; i < $scope.files.length; i++) {

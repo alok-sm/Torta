@@ -6,13 +6,19 @@ angular.module('ngPlayerApp')
             restrict: 'E',
             templateUrl: 'views/directives/terminalcommand.html',
             scope: {
-                command: '='
+                command: '=',
+                disablePathGlobal: '&',
+                globalDisabledPath: '='
             },
             link: function postLink($scope, element, attributes) {
                 $scope.editable = attributes.editable === 'true';
                 $scope.runnable = attributes.runnable === 'true';
                 $scope.recordingId = $routeParams.id;
                 $scope.fileServerUrl = constants.fileServerUrl;
+
+                $scope.disablePathGlobalIndireciton = function(path){
+                    $scope.disablePathGlobal({path: path});
+                };
 
                 $scope.validate = function(){
                     if($scope.command.validationScript){

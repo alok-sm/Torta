@@ -6,13 +6,19 @@ angular.module('ngPlayerApp')
             restrict: 'E',
             templateUrl: 'views/directives/appwindow.html',
             scope: {
-                window: '='
+                window: '=',
+                disablePathCallback: '&',
+                globalDisabledPath: '='
             },
             link: function postLink($scope, element, attributes) {
                 $scope.editable = attributes.editable === 'true';
                 $scope.runnable = attributes.runnable === 'true';
                 $scope.recordingId = $routeParams.id;
                 $scope.fileServerUrl = constants.fileServerUrl;
+
+                $scope.disablePathGlobal = function(path){
+                    $scope.disablePathCallback({path: path});
+                };
 
                 $scope.validate = function(){
                     if($scope.window.validationScript){
