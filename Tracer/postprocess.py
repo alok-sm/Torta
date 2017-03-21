@@ -5,7 +5,13 @@ import subprocess
 import string
 import random
 
+def look(x):
+	print x
+	return x
+
 ffmpeg_commands = []
+
+ffmpeg_command_template = 'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/{screencast} -y > /dev/null 2> /dev/null'
 
 chars = string.printable[: 36]
 def rand_str(n):
@@ -22,7 +28,13 @@ end_time = int(open('raw_data/{}/end_time.txt'.format(session_id)).readline().st
 
 window_positions = [json.loads(line) for line in open('raw_data/{}/window_positions.txt'.format(session_id))]
 
-filetrace = [json.loads(line) for line in open('raw_data/{}/filetrace.txt'.format(session_id))]
+filetrace = []
+for line in open('raw_data/{}/filetrace.txt'.format(session_id)):
+	try:
+		filetrace.append(json.loads(line))
+	except Exception as e:
+		pass
+# filetrace = [json.loads(look(line)) for line in open('raw_data/{}/filetrace.txt'.format(session_id))]
 
 def format_command_line(line):
 	return json.loads(line.replace("\"", "\\\"").replace("####", "\""))
@@ -122,7 +134,7 @@ def get_commands(position):
 		duration = command['screencast']['src'][1] - command['screencast']['src'][0]
 		duration = max(duration, 5)
 		ffmpeg_commands.append(
-			'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/{screencast} -y'.format(
+			ffmpeg_command_template.format(
 				session_id = session_id,
 				# start_time = position['timestamp']['start'] - start_time,
 				start_time = command['screencast']['src'][0] - start_time,
@@ -195,6 +207,20 @@ for position in grouped_positions:
 		'visibility': visibility
 	})
 
+
+windows = [window for window in windows if window['timestamp']['end'] - window['timestamp']['start'] > 3]
+
+i = 0
+while i < len(windows) - 1:
+    w1 = windows[i]
+    w2 = windows[i + 1]
+    if w1['app'] == w2['app'] and w1['position']['x'] == w2['position']['x'] and w1['position']['y'] == w2['position']['y'] and w1['position']['h'] == w2['position']['h'] and w1['position']['w'] == w2['position']['w']:
+        windows[i]['commands'].extend(w2['commands'])
+        windows[i]['timestamp']['end'] = w2['timestamp']['end']
+        del windows[i + 1]
+    else:
+        i += 1
+
 for i in xrange(len(windows)):
 	set_files(windows, i)
 
@@ -204,9 +230,9 @@ json.dump({
 	'introduction': ''
 }, open('output/{}/events.json'.format(session_id), 'w'), sort_keys=True, indent=4)
 
-for i, position in enumerate(grouped_positions):
+for i, position in enumerate(windows):
 	ffmpeg_commands.append(
-		'ffmpeg -i output/{session_id}/screen_recording.mov -ss {start_time} -t {duration} -filter:v "crop={width}:{height}:{x}:{y}" output/{session_id}/{screencast} -y'.format(
+		ffmpeg_command_template.format(
 			session_id = session_id,
 			start_time = position['timestamp']['start'] - start_time,
 			duration = position['timestamp']['end'] - position['timestamp']['start'],
@@ -214,12 +240,19 @@ for i, position in enumerate(grouped_positions):
 			height = position['position']['h'],
 			x = position['position']['x'],
 			y = position['position']['y'],
-			screencast = position['screencast']
+			screencast = position['screencast']['src']
 		)
 	)
 
-print "\n".join(ffmpeg_commands)
+for window in windows:
+	print "{}, {}-{} [{},{},{},{}]".format(window['app'], window['timestamp']['start'], window['timestamp']['end'], window['position']['x'], window['position']['y'], window['position']['w'], window['position']['h'])
 
-for ffmpeg_command in ffmpeg_commands:
+# print "\n".join(ffmpeg_commands)
+print '-----------------------------------'
+for i, ffmpeg_command in enumerate(ffmpeg_commands):
+	print "{}/{}".format(i + 1, len(ffmpeg_commands))
+	print "running", ffmpeg_command
+	print '-----------------------------------'
+	
 	os.system(ffmpeg_command)
 
