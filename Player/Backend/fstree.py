@@ -6,14 +6,16 @@ syscall_mapping = {
     'unlink': 'delete',
     'rename': 'rename',
     'open'  : 'write',
-    'close' : 'write'
+    'close' : 'write',
+    'write' : 'write'
 }
 
 icon_mapping = {
     'unlink': 'glyphicon glyphicon-file color_red',
     'rename': 'glyphicon glyphicon-file color_blue',
     'open'  : 'glyphicon glyphicon-file color_green',
-    'close' : 'glyphicon glyphicon-file color_green'
+    'close' : 'glyphicon glyphicon-file color_green',
+    'write' : 'glyphicon glyphicon-file color_green'
 }
 
 def create_node(name, original):
