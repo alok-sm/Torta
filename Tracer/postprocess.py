@@ -214,7 +214,11 @@ i = 0
 while i < len(windows) - 1:
     w1 = windows[i]
     w2 = windows[i + 1]
-    if w1['app'] == w2['app'] and w1['position']['x'] == w2['position']['x'] and w1['position']['y'] == w2['position']['y'] and w1['position']['h'] == w2['position']['h'] and w1['position']['w'] == w2['position']['w']:
+    if w1['app'] == w2['app'] and \
+        w1['position']['x'] == w2['position']['x'] and \
+        w1['position']['y'] == w2['position']['y'] and \
+        w1['position']['h'] == w2['position']['h'] and \
+        w1['position']['w'] == w2['position']['w']:
         windows[i]['commands'].extend(w2['commands'])
         windows[i]['timestamp']['end'] = w2['timestamp']['end']
         del windows[i + 1]

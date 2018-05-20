@@ -48,7 +48,7 @@ angular.module('ngPlayerApp')
 
                     return {
                         _enableItem: {
-                            label: 'Enable',
+                            label: 'Show',
                             action: function () {
                                 for (var i = 0; i < $scope.files.length; i++) {
                                     if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
@@ -59,7 +59,7 @@ angular.module('ngPlayerApp')
                             }
                         },
                         _disableItem: {
-                            label: 'Disable',
+                            label: 'Hide',
                             action: function () {
                                 for (var i = 0; i < $scope.files.length; i++) {
                                     if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
@@ -70,7 +70,7 @@ angular.module('ngPlayerApp')
                             }
                         },
                         _disablePathGlobal: {
-                            label: 'Disable Globally',
+                            label: 'Hide Globally',
                             action: function(){
                                 $scope.disablePathGlobal({path: node.data.fullpath});
                             }
@@ -100,7 +100,7 @@ angular.module('ngPlayerApp')
                             }
                         },
                         _validateNone: {
-                            label: 'Don\'t validate',
+                            label: 'Don\'t Validate',
                             action: function(){
                                 for (var i = 0; i < $scope.files.length; i++) {
                                     if(helpers.isParentDirectory(node.data.fullpath, $scope.files[i].path)){
