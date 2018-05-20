@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngPlayerApp')
-    .directive('fileTree', function ($log, fileapi, helpers, _) {
+    .directive('fileTree', function ($log, fileapi, helpers, _, $, bootbox) {
         return {
             restrict: 'E',
             templateUrl: 'views/directives/filetree.html',
@@ -142,6 +142,42 @@ angular.module('ngPlayerApp')
                     }
                 };
 
+                $scope.onDoubleClick = function(event){
+                    var targetIsFolder = $(
+                        $(event.target)
+                        .children()[0]
+                    ).hasClass('glyphicon-folder-open');
+
+                    if(!targetIsFolder){
+                        var path = $(event.target)
+                            .closest('li')
+                            .jstree()
+                            .element[0]
+                            .innerText
+                            .trim()
+                            .split('\n')
+                            .join('/')
+                            .substr(1);
+                        
+                        var fileTexts = _
+                            .chain($scope.files)
+                            .filter(function(file){
+                                return !file.disabled && file.path === path && file.text;
+                            })
+                            .map(function(file){
+                                return file.text;
+                            })
+                            .value();
+
+                        if(fileTexts.length > 0){
+                            bootbox.dialog({
+                                title: path.split('/').pop(),
+                                message: '<pre>' + fileTexts[0] + '</pre>'
+                            });
+                        }
+                    }
+                };
+
                 renderTree(false);
 
                 $scope.treeConfig = { 
@@ -150,6 +186,9 @@ angular.module('ngPlayerApp')
                     ], 
                     'contextmenu': {
                         'items': contextMenu
+                    },
+                    'core': {
+                        'dblclick_toggle': false
                     },
                     'version': 1
                 };
